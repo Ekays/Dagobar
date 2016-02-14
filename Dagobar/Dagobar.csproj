@@ -54,8 +54,13 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KRBTabControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\KRBTabControl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Bot.cs" />
+    <Compile Include="Core\EventArguments.cs" />
     <Compile Include="Forms\ConnectingForm.cs">
       <SubType>Form</SubType>
     </Compile>

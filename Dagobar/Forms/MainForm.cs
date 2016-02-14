@@ -11,26 +11,49 @@ namespace Dagobar.Forms
             InitializeComponent();
 
             Core.Bot.I.Run();
-            Core.Bot.I.OnReceived += I_OnReceived;
+            Core.Bot.I.OnDataReceived += I_OnReceived;
+            Core.Bot.I.OnMessageReceived += I_OnMessageReceived;
+        }
+
+        void I_OnMessageReceived(object sender, EventArgs e)
+        {
+            string data = ((Core.ReceiveMessageEventArgs)e).Username + ": " + ((Core.ReceiveMessageEventArgs)e).Text;
+            Invoke((AddLineChatDelegate)AddLineChat, new object[] { data });
         }
 
         void I_OnReceived(object sender, EventArgs e)
         {
-            string data = ((Core.Network.ReceiveEventArgs)e).Data;
-            Invoke((AddLineDelegate)AddLine, new object[] { data });
+            string data = ((Core.ReceiveDataEventArgs)e).Data;
+            Invoke((AddLineRawDataDelegate)AddLineRawData, new object[] { data });
         }
 
-        public delegate void AddLineDelegate(string line);
-        public void AddLine(string line) {
-            List<string> list = Helpers.Array.ArrayToList<string>(richTextBoxRawData.Lines);
-            list.Add(line);
-            richTextBoxRawData.Lines = list.ToArray();
-        }
-
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        public delegate void AddLineRawDataDelegate(string line);
+        public void AddLineRawData(string line)
         {
-            Core.Bot.I.Close();
-            Application.Exit();
+            List<string> list = Helpers.Array.ArrayToList<string>(richTextBoxRaw.Lines);
+            list.Add(line);
+            richTextBoxRaw.Lines = list.ToArray();
+            richTextBoxRaw.SelectionStart = richTextBoxRaw.Text.Length;
+            richTextBoxRaw.ScrollToCaret();
+        }
+
+        public delegate void AddLineChatDelegate(string line);
+        public void AddLineChat(string line)
+        {
+            List<string> list = Helpers.Array.ArrayToList<string>(richTextBoxChat.Lines);
+            list.Add(line);
+            richTextBoxChat.Lines = list.ToArray();
+            richTextBoxChat.SelectionStart = richTextBoxChat.Text.Length;
+            richTextBoxChat.ScrollToCaret();
+        }
+
+        private void textBoxChat_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode != Keys.Enter || textBoxChat.Text == String.Empty) return;
+
+            Core.Bot.I.SendChannelMessage(textBoxChat.Text);
+            AddLineChat(Properties.Settings.Default.BotNickname + ": " + textBoxChat.Text);
+            textBoxChat.Text = String.Empty;
         }
     }
 }

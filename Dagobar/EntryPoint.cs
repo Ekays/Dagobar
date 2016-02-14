@@ -29,6 +29,9 @@ namespace Dagobar
         {
             while (Application.OpenForms.Count > 0) Thread.Sleep(1000);
 
+            Core.Bot.I.Close();
+
+            Application.ExitThread();
             Application.Exit();
         }
     }

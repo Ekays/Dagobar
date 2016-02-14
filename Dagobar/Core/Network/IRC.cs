@@ -20,23 +20,6 @@ namespace Dagobar.Core.Network
         public string Nick, Password;
     }
 
-    class ReceiveEventArgs : EventArgs
-    {
-        private string d = String.Empty;
-        public string Data
-        {
-            get
-            {
-                return d;
-            }
-        }
-
-        public ReceiveEventArgs(string data)
-        {
-            d = data;
-        }
-    }
-
     class IRC
     {
         private TcpClient client;
@@ -185,7 +168,7 @@ namespace Dagobar.Core.Network
                 else
                 {
                     EventHandler localEvent = OnReceived;
-                    if (localEvent != null) localEvent(this, new ReceiveEventArgs(dataLine));
+                    if (localEvent != null) localEvent(this, new ReceiveDataEventArgs(dataLine));
                 }
             }
         }
