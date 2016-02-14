@@ -26,11 +26,6 @@ namespace Dagobar.Core
             irc.OnReceived += irc_OnReceived;
         }
 
-        void irc_OnReceived(object sender, EventArgs e)
-        {
- 	        string data = ((ReceiveEventArgs)e).Data;
-        }
-
         public void Run()
         {
             irc.Connect(ConnectionInformations.Twitch);
@@ -40,5 +35,16 @@ namespace Dagobar.Core
                 Password = Properties.Settings.Default.BotOAuth
             });
         }
+
+        public void irc_OnReceived(object sender, EventArgs e)
+        {
+ 	        string data = ((ReceiveEventArgs)e).Data;
+        }
+
+        public void SendChannelMessage(string message)
+        {
+            irc.SendChannelMessage(message);
+        }
+        
     }
 }

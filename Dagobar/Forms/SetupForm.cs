@@ -19,6 +19,11 @@ namespace Dagobar.Forms
                 Properties.Settings.Default.BotOwner = textBoxOwner.Text;
                 Properties.Settings.Default.HasBeenSetuped = true;
                 Properties.Settings.Default.Save();
+
+                ConnectingForm f = new ConnectingForm();
+                f.Show();
+
+                this.Close();
             }
             else
             {

@@ -67,6 +67,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Bot.cs" />
+    <Compile Include="Forms\ConnectingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConnectingForm.Designer.cs">
+      <DependentUpon>ConnectingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SetupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Core\Network\IRC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ConnectingForm.resx">
+      <DependentUpon>ConnectingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icon.ico" />
+    <None Include="Resources\loading.gif" />
     <None Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
