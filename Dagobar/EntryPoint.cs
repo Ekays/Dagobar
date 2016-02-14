@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +17,19 @@ namespace Dagobar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SplashScreen());
+            new SplashScreen().Show();
+
+            new Thread(CloseCheck).Start();
+
+            Application.Run();
+
+        }
+
+        static void CloseCheck()
+        {
+            while (Application.OpenForms.Count > 0) Thread.Sleep(1000);
+
+            Application.Exit();
         }
     }
 }

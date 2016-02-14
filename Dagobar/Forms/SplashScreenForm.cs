@@ -21,16 +21,11 @@ namespace Dagobar
             timerClose.Stop();
 
             if (Properties.Settings.Default.HasBeenSetuped)
-            {
-                MainForm f = new MainForm();
-                f.Show();
-            }
+                new MainForm().Show();
             else
-            {
-                SetupForm f = new SetupForm();
-                f.Show();
-            }
-            this.Hide();
+                new SetupForm().Show();
+
+            this.Close();
         }
     }
 }
