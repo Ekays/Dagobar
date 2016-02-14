@@ -93,6 +93,7 @@
     </Compile>
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Core\Network\IRC.cs" />
+    <Compile Include="Helpers\Array.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\ConnectingForm.resx">
       <DependentUpon>ConnectingForm.cs</DependentUpon>

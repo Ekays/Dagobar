@@ -40,9 +40,11 @@ namespace Dagobar.Core
             irc.Close();
         }
 
+        public event EventHandler OnReceived;
         public void irc_OnReceived(object sender, EventArgs e)
         {
- 	        string data = ((ReceiveEventArgs)e).Data;
+            EventHandler localEvent = OnReceived;
+            if (localEvent != null) localEvent(this, e);
         }
 
         public void SendChannelMessage(string message)
