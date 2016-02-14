@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace Dagobar.Network
+namespace Dagobar.Core.Network
 {
     struct ConnectionInformations {
         public static ConnectionInformations Twitch = new ConnectionInformations() { Address = "irc.twitch.tv", Port = 6667};
@@ -171,8 +171,16 @@ namespace Dagobar.Network
                     continue;
                 }
 
-                EventHandler localEvent = OnReceived;
-                if (localEvent != null) localEvent(this, new ReceiveEventArgs(dataLine));
+                string[] dataSplit = dataLine.Split(' ');
+                if (dataSplit[0] == "PING")
+                {
+                    SendData("PONG " + dataLine[1]);
+                }
+                else
+                {
+                    EventHandler localEvent = OnReceived;
+                    if (localEvent != null) localEvent(this, new ReceiveEventArgs(dataLine));
+                }
             }
         }
     }

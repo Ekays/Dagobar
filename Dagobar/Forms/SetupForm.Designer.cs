@@ -57,7 +57,7 @@
             this.textBoxBotNick.Location = new System.Drawing.Point(296, 75);
             this.textBoxBotNick.Name = "textBoxBotNick";
             this.textBoxBotNick.Size = new System.Drawing.Size(376, 30);
-            this.textBoxBotNick.TabIndex = 4;
+            this.textBoxBotNick.TabIndex = 1;
             // 
             // buttonSave
             // 
@@ -65,7 +65,7 @@
             this.buttonSave.Location = new System.Drawing.Point(296, 183);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(376, 41);
-            this.buttonSave.TabIndex = 7;
+            this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Sauvegarder et relâcher Dagobar";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
@@ -76,9 +76,9 @@
             this.textBoxOAuth.Font = new System.Drawing.Font("Open Sans", 12.5F);
             this.textBoxOAuth.Location = new System.Drawing.Point(296, 110);
             this.textBoxOAuth.Name = "textBoxOAuth";
-            this.textBoxOAuth.PasswordChar = '¤';
+            this.textBoxOAuth.PasswordChar = '*';
             this.textBoxOAuth.Size = new System.Drawing.Size(376, 30);
-            this.textBoxOAuth.TabIndex = 9;
+            this.textBoxOAuth.TabIndex = 2;
             this.textBoxOAuth.UseSystemPasswordChar = true;
             // 
             // labelOAuth
@@ -98,7 +98,7 @@
             this.textBoxOwner.Location = new System.Drawing.Point(296, 145);
             this.textBoxOwner.Name = "textBoxOwner";
             this.textBoxOwner.Size = new System.Drawing.Size(376, 30);
-            this.textBoxOwner.TabIndex = 11;
+            this.textBoxOwner.TabIndex = 3;
             // 
             // labelOwner
             // 
@@ -127,6 +127,7 @@
             // 
             // SetupForm
             // 
+            this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 236);
@@ -155,11 +156,11 @@
 
         private System.Windows.Forms.Label labelBotNickname;
         private System.Windows.Forms.TextBox textBoxBotNick;
-        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.TextBox textBoxOAuth;
         private System.Windows.Forms.Label labelOAuth;
         private System.Windows.Forms.TextBox textBoxOwner;
         private System.Windows.Forms.Label labelOwner;
+        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }

@@ -22,7 +22,8 @@ namespace Dagobar
 
             if (Properties.Settings.Default.HasBeenSetuped)
             {
-
+                SetupForm f = new SetupForm();
+                f.Show();
             }
             else
             {

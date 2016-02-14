@@ -82,6 +82,7 @@
             this.Name = "SplashScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dagobar";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.SplashScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);

@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Bot.cs" />
     <Compile Include="Forms\SetupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,7 +80,7 @@
       <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="Network\IRC.cs" />
+    <Compile Include="Core\Network\IRC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
