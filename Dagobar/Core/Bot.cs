@@ -35,6 +35,10 @@ namespace Dagobar.Core
                 Password = Properties.Settings.Default.BotOAuth
             });
         }
+        public void Close()
+        {
+            irc.Close();
+        }
 
         public void irc_OnReceived(object sender, EventArgs e)
         {

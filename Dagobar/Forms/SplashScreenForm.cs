@@ -27,7 +27,7 @@ namespace Dagobar
             }
             else
             {
-                SetupForm f = new SetupForm();
+                MainForm f = new MainForm();
                 f.Show();
             }
             this.Hide();

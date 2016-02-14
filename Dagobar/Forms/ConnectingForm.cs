@@ -15,6 +15,11 @@ namespace Dagobar.Forms
         {
             Core.Bot.I.Run();
             Thread.Sleep(1000);
+
+            MainForm f = new MainForm();
+            f.Show();
+
+            this.Close();
         }
     }
 }
