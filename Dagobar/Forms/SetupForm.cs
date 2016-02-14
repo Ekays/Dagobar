@@ -35,5 +35,12 @@ namespace Dagobar.Forms
         {
             return oauth.StartsWith("oauth:") && oauth.Length == 36;
         }
+
+        private void SetupForm_Load(object sender, EventArgs e)
+        {
+            textBoxBotNick.Text = Properties.Settings.Default.BotNickname;
+            textBoxOAuth.Text = Properties.Settings.Default.BotOAuth;
+            textBoxOwner.Text = Properties.Settings.Default.BotOwner;
+        }
     }
 }

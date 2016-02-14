@@ -22,12 +22,12 @@ namespace Dagobar
 
             if (Properties.Settings.Default.HasBeenSetuped)
             {
-                SetupForm f = new SetupForm();
+                MainForm f = new MainForm();
                 f.Show();
             }
             else
             {
-                MainForm f = new MainForm();
+                SetupForm f = new SetupForm();
                 f.Show();
             }
             this.Hide();

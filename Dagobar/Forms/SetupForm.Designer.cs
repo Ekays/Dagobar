@@ -146,6 +146,7 @@
             this.MinimumSize = new System.Drawing.Size(700, 275);
             this.Name = "SetupForm";
             this.Text = "Configuration de Dagobar";
+            this.Load += new System.EventHandler(this.SetupForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

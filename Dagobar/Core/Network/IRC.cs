@@ -164,7 +164,13 @@ namespace Dagobar.Core.Network
         {
             while (IsConnected)
             {
-                string dataLine = reader.ReadLine();
+                string dataLine = null;
+                try
+                {
+                    dataLine = reader.ReadLine();
+                }
+                catch (IOException) { }
+
                 if (dataLine == null)
                 {
                     Thread.Sleep(100);
