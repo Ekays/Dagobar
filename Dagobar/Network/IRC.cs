@@ -16,6 +16,7 @@ namespace Dagobar.Network
 
     struct AuthentificationInformations
     {
+        public static AuthentificationInformations Anonymous = new AuthentificationInformations() { Nick = "Anonymous", Password = "" };
         public string Nick, Password;
     }
 

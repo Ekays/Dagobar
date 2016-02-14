@@ -53,7 +53,7 @@
             this.pictureBoxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxLogo.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.SlateGray;
             this.pictureBoxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxLogo.Image = global::Dagobar.Properties.Resources.icon;
             this.pictureBoxLogo.InitialImage = null;

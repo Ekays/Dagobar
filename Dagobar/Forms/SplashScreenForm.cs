@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dagobar.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace Dagobar
@@ -19,8 +20,16 @@ namespace Dagobar
         {
             timerClose.Stop();
 
-            //Show next form
-            this.Close();
+            if (Properties.Settings.Default.HasBeenSetuped)
+            {
+
+            }
+            else
+            {
+                SetupForm f = new SetupForm();
+                f.Show();
+            }
+            this.Hide();
         }
     }
 }
