@@ -1,4 +1,4 @@
-﻿using Dagobar.Core.Network;
+﻿using Dagobar.Core;
 using System;
 
 namespace Dagobar.Core
@@ -38,6 +38,11 @@ namespace Dagobar.Core
         public void Close()
         {
             irc.Close();
+        }
+
+        public void ChangeChannel(string newChannel)
+        {
+            irc.ChangeChannel(newChannel);
         }
 
         public event EventHandler OnDataReceived;

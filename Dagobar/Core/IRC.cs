@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 
-namespace Dagobar.Core.Network
+namespace Dagobar.Core
 {
     struct ConnectionInformations {
         public static ConnectionInformations Twitch = new ConnectionInformations() { Address = "irc.twitch.tv", Port = 6667};
@@ -65,6 +65,7 @@ namespace Dagobar.Core.Network
 
             try
             {
+                client = new TcpClient();
                 client.Connect(ci.Address, ci.Port);
             }
             catch (SocketException)

@@ -18,13 +18,21 @@ namespace Dagobar.Forms
         void I_OnMessageReceived(object sender, EventArgs e)
         {
             string data = ((Core.ReceiveMessageEventArgs)e).Username + ": " + ((Core.ReceiveMessageEventArgs)e).Text;
-            Invoke((AddLineChatDelegate)AddLineChat, new object[] { data });
+            try
+            {
+                Invoke((AddLineChatDelegate)AddLineChat, new object[] { data });
+            }
+            catch (Exception) { }
         }
 
         void I_OnReceived(object sender, EventArgs e)
         {
             string data = ((Core.ReceiveDataEventArgs)e).Data;
-            Invoke((AddLineRawDataDelegate)AddLineRawData, new object[] { data });
+            try
+            {
+                Invoke((AddLineRawDataDelegate)AddLineRawData, new object[] { data });
+            }
+            catch (Exception) { }
         }
 
         public delegate void AddLineRawDataDelegate(string line);
@@ -54,6 +62,23 @@ namespace Dagobar.Forms
             Core.Bot.I.SendChannelMessage(textBoxChat.Text);
             AddLineChat(Properties.Settings.Default.BotNickname + ": " + textBoxChat.Text);
             textBoxChat.Text = String.Empty;
+        }
+
+        private void buttonQuit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonSettings_Click(object sender, EventArgs e)
+        {
+            new SetupForm().Show();
+            this.Close();
+        }
+
+        private void buttonChangeChannel_Click(object sender, EventArgs e)
+        {
+            string newChannel = Microsoft.VisualBasic.Interaction.InputBox("Nom du nouveau channel: ", "Dagobar", Properties.Settings.Default.BotOwner);
+            Core.Bot.I.ChangeChannel(newChannel);
         }
     }
 }
