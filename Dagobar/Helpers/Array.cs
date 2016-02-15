@@ -25,7 +25,7 @@ namespace Dagobar.Helpers
             return ret;
         }
 
-        // Cast Array to List
+        // Cast Generic Array to List
         public static List<T> ArrayToList<T>(T[] array)
         {
             List<T> list = new List<T>();
