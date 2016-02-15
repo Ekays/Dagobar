@@ -77,7 +77,7 @@ namespace Dagobar.Forms
 
         private void buttonChangeChannel_Click(object sender, EventArgs e)
         {
-            string newChannel = Microsoft.VisualBasic.Interaction.InputBox("Nom du nouveau channel: ", "Dagobar", Properties.Settings.Default.BotOwner);
+            string newChannel = Microsoft.VisualBasic.Interaction.InputBox("Nom du nouveau channel: ", "Dagobar", Properties.Settings.Default.BotOwner); //@TODO: Make a custom input box
             Core.Bot.I.ChangeChannel(newChannel);
         }
     }
