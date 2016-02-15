@@ -22,7 +22,7 @@ namespace Dagobar.Core
 
         public Bot()
         {
-            irc = new IRC(Properties.Settings.Default.BotOwner);
+            irc = new IRC(Properties.Settings.Default.BotChannel);
             irc.OnReceived += irc_OnReceived;
         }
 

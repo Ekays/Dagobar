@@ -70,5 +70,17 @@ namespace Dagobar.Properties {
                 this["HasBeenSetuped"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string BotChannel {
+            get {
+                return ((string)(this["BotChannel"]));
+            }
+            set {
+                this["BotChannel"] = value;
+            }
+        }
     }
 }

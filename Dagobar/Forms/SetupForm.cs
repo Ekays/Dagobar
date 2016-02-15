@@ -17,7 +17,13 @@ namespace Dagobar.Forms
                 Properties.Settings.Default.BotNickname = textBoxBotNick.Text;
                 Properties.Settings.Default.BotOAuth = textBoxOAuth.Text;
                 Properties.Settings.Default.BotOwner = textBoxOwner.Text;
-                Properties.Settings.Default.HasBeenSetuped = true;
+
+                if (!Properties.Settings.Default.HasBeenSetuped)
+                {
+                    Properties.Settings.Default.HasBeenSetuped = true;
+                    Properties.Settings.Default.BotChannel = Properties.Settings.Default.BotOwner;
+                }
+               
                 Properties.Settings.Default.Save();
 
                 ConnectingForm f = new ConnectingForm();
