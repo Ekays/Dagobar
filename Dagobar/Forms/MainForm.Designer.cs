@@ -36,6 +36,8 @@
             this.tabPageRaw = new System.Windows.Forms.TabPage();
             this.richTextBoxRaw = new System.Windows.Forms.RichTextBox();
             this.tabPageInformations = new System.Windows.Forms.TabPage();
+            this.labelViewers = new System.Windows.Forms.Label();
+            this.labelIntroViewers = new System.Windows.Forms.Label();
             this.labelPlugins = new System.Windows.Forms.Label();
             this.labelIntroPlugins = new System.Windows.Forms.Label();
             this.labelChannel = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.buttonChangeChannel = new System.Windows.Forms.Button();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.richTextBoxAbout = new System.Windows.Forms.RichTextBox();
-            this.labelViewers = new System.Windows.Forms.Label();
-            this.labelIntroViewers = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPageChat.SuspendLayout();
             this.tabPageRaw.SuspendLayout();
@@ -155,6 +155,26 @@
             this.tabPageInformations.Size = new System.Drawing.Size(626, 365);
             this.tabPageInformations.TabIndex = 3;
             this.tabPageInformations.Text = "Informations";
+            // 
+            // labelViewers
+            // 
+            this.labelViewers.AutoSize = true;
+            this.labelViewers.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelViewers.Location = new System.Drawing.Point(121, 31);
+            this.labelViewers.Name = "labelViewers";
+            this.labelViewers.Size = new System.Drawing.Size(105, 22);
+            this.labelViewers.TabIndex = 5;
+            this.labelViewers.Text = "Mise à jour...";
+            // 
+            // labelIntroViewers
+            // 
+            this.labelIntroViewers.AutoSize = true;
+            this.labelIntroViewers.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIntroViewers.Location = new System.Drawing.Point(11, 31);
+            this.labelIntroViewers.Name = "labelIntroViewers";
+            this.labelIntroViewers.Size = new System.Drawing.Size(77, 22);
+            this.labelIntroViewers.TabIndex = 4;
+            this.labelIntroViewers.Text = "Viewers: ";
             // 
             // labelPlugins
             // 
@@ -270,6 +290,7 @@
             // 
             this.richTextBoxAbout.BackColor = System.Drawing.Color.SlateGray;
             this.richTextBoxAbout.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxAbout.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.richTextBoxAbout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxAbout.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxAbout.ForeColor = System.Drawing.Color.White;
@@ -278,26 +299,6 @@
             this.richTextBoxAbout.Size = new System.Drawing.Size(626, 365);
             this.richTextBoxAbout.TabIndex = 0;
             this.richTextBoxAbout.Text = resources.GetString("richTextBoxAbout.Text");
-            // 
-            // labelViewers
-            // 
-            this.labelViewers.AutoSize = true;
-            this.labelViewers.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelViewers.Location = new System.Drawing.Point(121, 31);
-            this.labelViewers.Name = "labelViewers";
-            this.labelViewers.Size = new System.Drawing.Size(105, 22);
-            this.labelViewers.TabIndex = 5;
-            this.labelViewers.Text = "Mise à jour...";
-            // 
-            // labelIntroViewers
-            // 
-            this.labelIntroViewers.AutoSize = true;
-            this.labelIntroViewers.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIntroViewers.Location = new System.Drawing.Point(11, 31);
-            this.labelIntroViewers.Name = "labelIntroViewers";
-            this.labelIntroViewers.Size = new System.Drawing.Size(77, 22);
-            this.labelIntroViewers.TabIndex = 4;
-            this.labelIntroViewers.Text = "Viewers: ";
             // 
             // MainForm
             // 
