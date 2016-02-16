@@ -24,10 +24,13 @@ namespace Dagobar
         {
             timerClose.Start(); // On Load , start the 3 seconds timer
 
+            // Dat simplest updater do'
             try
             {
                 WebClient c = new WebClient();
-                labelUpdate.Visible = c.DownloadString("https://raw.githubusercontent.com/r00tKiller/r00tKiller.github.io/master/Dagobar/.version") == Properties.Settings.Default.Version;
+                string lastVersion = c.DownloadString(Properties.Settings.Default.LastVersionAddress);
+                string currentVersion = Properties.Settings.Default.Version;
+                labelUpdate.Visible = lastVersion != currentVersion;
             }
             catch (WebException) { }
         }

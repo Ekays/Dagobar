@@ -120,7 +120,7 @@
   <data name="richTextBoxAbout.Text" xml:space="preserve">
     <value>Dagobar est un bot Twitch qui se veut simple et modulaire. Ainsi, grâce à un SDK ultra léger et un système de plugins innovants, vous pourrez créez vos propres commandes avancées !
 
-Il est developpé par un incroyable programmeur, r00tKiller et est un logiciel libre sous licence GPL V3, cela signifie que c'est un logiciel libre et open-source. Vous pourrez trouvez la source de ce bot sur mon GitHub ( r00tKiller ).
+Il est developpé par un incroyable programmeur, r00tKiller et est un logiciel sous licence GPL V3, cela signifie que c'est un logiciel libre et open-source. Vous pourrez trouvez la source de ce bot sur mon GitHub ( r00tKiller ).
 
 Copyright (C) 2016 r00tkiller&lt;alexandreviper@hotmail.fr&gt;</value>
   </data>
