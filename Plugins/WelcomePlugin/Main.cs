@@ -28,6 +28,11 @@ namespace WelcomePlugin
 
         public WelcomePlugin_Main()
         {
+            LoadConfig();
+
+        }
+        public void LoadConfig()
+        {
             JObject json;
             if (System.IO.File.Exists(configPath)) // If the file exists
             {
@@ -49,7 +54,11 @@ namespace WelcomePlugin
 
         public void PerformCommand(IPluginContext context)
         {
-            if (!validConfig) return; // If config is invalid return
+            if (!validConfig)
+            {
+                LoadConfig();
+                return;
+            }
 
             string lowerText = context.Text.ToLower(); // Get the sended text to lower
 
