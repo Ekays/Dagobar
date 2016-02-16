@@ -45,12 +45,15 @@
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonChangeChannel = new System.Windows.Forms.Button();
+            this.tabPageAbout = new System.Windows.Forms.TabPage();
+            this.richTextBoxAbout = new System.Windows.Forms.RichTextBox();
             this.tabControl.SuspendLayout();
             this.tabPageChat.SuspendLayout();
             this.tabPageRaw.SuspendLayout();
             this.tabPageInformations.SuspendLayout();
             this.tabPageOptions.SuspendLayout();
             this.tableLayoutPanelOptions.SuspendLayout();
+            this.tabPageAbout.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -59,6 +62,7 @@
             this.tabControl.Controls.Add(this.tabPageRaw);
             this.tabControl.Controls.Add(this.tabPageInformations);
             this.tabControl.Controls.Add(this.tabPageOptions);
+            this.tabControl.Controls.Add(this.tabPageAbout);
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Font = new System.Drawing.Font("Open Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.ImeMode = System.Windows.Forms.ImeMode.Off;
@@ -154,7 +158,7 @@
             // 
             this.labelPlugins.AutoSize = true;
             this.labelPlugins.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlugins.Location = new System.Drawing.Point(121, 66);
+            this.labelPlugins.Location = new System.Drawing.Point(121, 31);
             this.labelPlugins.Name = "labelPlugins";
             this.labelPlugins.Size = new System.Drawing.Size(96, 22);
             this.labelPlugins.TabIndex = 3;
@@ -164,7 +168,7 @@
             // 
             this.labelIntroPlugins.AutoSize = true;
             this.labelIntroPlugins.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIntroPlugins.Location = new System.Drawing.Point(8, 66);
+            this.labelIntroPlugins.Location = new System.Drawing.Point(8, 31);
             this.labelIntroPlugins.Name = "labelIntroPlugins";
             this.labelIntroPlugins.Size = new System.Drawing.Size(73, 22);
             this.labelIntroPlugins.TabIndex = 2;
@@ -250,6 +254,29 @@
             this.buttonChangeChannel.UseVisualStyleBackColor = true;
             this.buttonChangeChannel.Click += new System.EventHandler(this.buttonChangeChannel_Click);
             // 
+            // tabPageAbout
+            // 
+            this.tabPageAbout.BackColor = System.Drawing.Color.SlateGray;
+            this.tabPageAbout.Controls.Add(this.richTextBoxAbout);
+            this.tabPageAbout.Location = new System.Drawing.Point(4, 27);
+            this.tabPageAbout.Name = "tabPageAbout";
+            this.tabPageAbout.Size = new System.Drawing.Size(626, 365);
+            this.tabPageAbout.TabIndex = 4;
+            this.tabPageAbout.Text = "À propos";
+            // 
+            // richTextBoxAbout
+            // 
+            this.richTextBoxAbout.BackColor = System.Drawing.Color.SlateGray;
+            this.richTextBoxAbout.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBoxAbout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBoxAbout.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxAbout.ForeColor = System.Drawing.Color.White;
+            this.richTextBoxAbout.Location = new System.Drawing.Point(0, 0);
+            this.richTextBoxAbout.Name = "richTextBoxAbout";
+            this.richTextBoxAbout.Size = new System.Drawing.Size(626, 365);
+            this.richTextBoxAbout.TabIndex = 0;
+            this.richTextBoxAbout.Text = resources.GetString("richTextBoxAbout.Text");
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +297,7 @@
             this.tabPageInformations.PerformLayout();
             this.tabPageOptions.ResumeLayout(false);
             this.tableLayoutPanelOptions.ResumeLayout(false);
+            this.tabPageAbout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -292,6 +320,8 @@
         private System.Windows.Forms.Label labelChannel;
         private System.Windows.Forms.Label labelPlugins;
         private System.Windows.Forms.Label labelIntroPlugins;
+        private System.Windows.Forms.TabPage tabPageAbout;
+        private System.Windows.Forms.RichTextBox richTextBoxAbout;
 
 
 
