@@ -95,5 +95,24 @@ namespace Dagobar.Forms
             Properties.Settings.Default.BotChannel = newChannel; // Change it in the settings
             Properties.Settings.Default.Save(); // Save the settings
         }
+
+        private void tabControl_TabIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        // UpdateInformations: Update the displayed informations in the Informations tab
+        private void UpdateInformations()
+        {
+            labelChannel.Text = Core.Bot.I.CurrentChannel; // Set the channel label to current channel
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedTab == tabPageInformations) // On tab changed, if new tab is informations tab
+            {
+                UpdateInformations(); // Update informations in this tab
+            }
+        }
     }
 }

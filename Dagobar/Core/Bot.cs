@@ -26,6 +26,15 @@ namespace Dagobar.Core
         }
         #endregion
 
+        // Current channel the bot is on 
+        public string CurrentChannel
+        {
+            get
+            {
+                return irc.CurrentChannel;
+            }
+        }
+
         private IRC irc; // Private member: the IRC object which makes a basic connection with an IRC server
         private ChatProcessor cp; // Private member: the CommandProcessor object which executes commands
         // ctor
