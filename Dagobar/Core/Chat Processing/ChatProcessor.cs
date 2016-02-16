@@ -54,14 +54,15 @@ namespace Dagobar.Core.ChatProcessing
             bot.OnMessageReceived += bot_OnMessageReceived; // Bind event
         }
 
+        // LoadedPluginNames: Return all the names of loaded plugins
         public List<string> LoadedPluginNames()
         {
-            List<string> list = new List<string>();
-            foreach (IPlugin plugin in plugins)
+            List<string> list = new List<string>(); // Create a new list
+            foreach (IPlugin plugin in plugins) // Foreach plugin
             {
-                list.Add(plugin.Name);
+                list.Add(plugin.Name); // Add its name to the list
             }
-            return list;
+            return list; // Return the list
         }
 
         void bot_OnMessageReceived(object sender, EventArgs e)
