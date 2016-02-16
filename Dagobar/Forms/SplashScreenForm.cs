@@ -8,6 +8,7 @@
 
 using Dagobar.Forms;
 using System;
+using System.Net;
 using System.Windows.Forms;
 
 namespace Dagobar
@@ -22,6 +23,13 @@ namespace Dagobar
         private void SplashScreen_Load(object sender, EventArgs e)
         {
             timerClose.Start(); // On Load , start the 3 seconds timer
+
+            try
+            {
+                WebClient c = new WebClient();
+                labelUpdate.Visible = c.DownloadString("https://raw.githubusercontent.com/r00tKiller/r00tKiller.github.io/master/Dagobar/.version") == Properties.Settings.Default.Version;
+            }
+            catch (WebException) { }
         }
 
         private void timerClose_Tick(object sender, EventArgs e)

@@ -33,6 +33,7 @@
             this.labelWelcome = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.timerClose = new System.Windows.Forms.Timer(this.components);
+            this.labelUpdate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,12 +70,26 @@
             this.timerClose.Interval = 3000;
             this.timerClose.Tick += new System.EventHandler(this.timerClose_Tick);
             // 
+            // labelUpdate
+            // 
+            this.labelUpdate.AutoSize = true;
+            this.labelUpdate.BackColor = System.Drawing.Color.SlateGray;
+            this.labelUpdate.Font = new System.Drawing.Font("Open Sans", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUpdate.ForeColor = System.Drawing.Color.White;
+            this.labelUpdate.Location = new System.Drawing.Point(15, 15);
+            this.labelUpdate.Name = "labelUpdate";
+            this.labelUpdate.Size = new System.Drawing.Size(226, 20);
+            this.labelUpdate.TabIndex = 2;
+            this.labelUpdate.Text = "Une mise à jour est disponible !";
+            this.labelUpdate.Visible = false;
+            // 
             // SplashScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(550, 200);
+            this.Controls.Add(this.labelUpdate);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.labelWelcome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -96,6 +111,7 @@
         private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.Timer timerClose;
+        private System.Windows.Forms.Label labelUpdate;
     }
 }
 
