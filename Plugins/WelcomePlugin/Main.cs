@@ -25,6 +25,7 @@ namespace WelcomePlugin
         string configPath = (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)) + @"\config.json"; // Path to the json file which stores the words list
         bool validConfig = false; // Is the config file valid 
         string[] welcomeWords; // Array of words used for recognition
+        List<string> alreadyWelcomed = new List<string>(); // List of persons alread ywelcomed
 
         public WelcomePlugin_Main()
         {
@@ -60,12 +61,15 @@ namespace WelcomePlugin
                 return;
             }
 
+            if (alreadyWelcomed.Contains(context.Username)) return;
+
             string lowerText = context.Text.ToLower(); // Get the sended text to lower
 
             foreach (string welcome in welcomeWords) // Foreach welcome word
             {
                 if (lowerText == welcome || lowerText.Contains(" " + welcome + " ") || lowerText.StartsWith(welcome + " ") || lowerText.EndsWith(" " + welcome)) // Is it as a word ( so not IN a word ) in the text
                 {
+                    alreadyWelcomed.Add(context.Username);
                     context.Bot.SendChannelMessage("Bienvenue @" + context.Username + "!"); // Say welcome !
                     break;
                 }
