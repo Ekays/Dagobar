@@ -59,6 +59,11 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>IF NOT EXIST $(ProjectDir)..\..\Dagobar\$(OutDir)\Plugins\$(ProjectName) mkdir  $(ProjectDir)..\..\Dagobar\$(OutDir)\Plugins\$(ProjectName)
+IF EXIST $(ProjectDir)..\..\Dagobar\$(OutDir)Plugins\$(ProjectName)\$(TargetFileName) rm  $(ProjectDir)..\..\Dagobar\$(OutDir)Plugins\$(ProjectName)\$(TargetFileName)
+copy $(TargetPath) $(ProjectDir)..\..\$(SolutionName)\$(OutDir)Plugins\$(ProjectName)\</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

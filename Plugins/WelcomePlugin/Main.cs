@@ -24,7 +24,7 @@ namespace WelcomePlugin
 
         string configPath = (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)) + @"\config.json"; // Path to the json file which stores the words list
         bool validConfig = false; // Is the config file valid 
-        string[] config; // Array of words used for recognition
+        string[] welcomeWords; // Array of words used for recognition
 
         public WelcomePlugin_Main()
         {
@@ -44,7 +44,7 @@ namespace WelcomePlugin
                     string content = System.IO.File.ReadAllText(configPath, System.Text.Encoding.UTF8);
                     json = JObject.Parse(content);
 
-                    config = json["welcome"].Values<string>().ToArray<string>() ;
+                    welcomeWords = json["welcome"].Values<string>().ToArray<string>() ;
 
                     validConfig = true; // No error ? Config is valid
                 }
@@ -62,11 +62,11 @@ namespace WelcomePlugin
 
             string lowerText = context.Text.ToLower(); // Get the sended text to lower
 
-            foreach (string welcome in config) // Foreach welcome word
+            foreach (string welcome in welcomeWords) // Foreach welcome word
             {
                 if (lowerText == welcome || lowerText.Contains(" " + welcome + " ") || lowerText.StartsWith(welcome + " ") || lowerText.EndsWith(" " + welcome)) // Is it as a word ( so not IN a word ) in the text
                 {
-                    context.Bot.SendChannelMessage("Bienvenue @" + context.Username); // Say welcome !
+                    context.Bot.SendChannelMessage("Bienvenue @" + context.Username + "!"); // Say welcome !
                     break;
                 }
             }
