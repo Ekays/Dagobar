@@ -53,7 +53,7 @@ namespace Dagobar.Core
             irc = new IRC(Properties.Settings.Default.BotChannel); // Initialize the IRC object with the last channel used
             irc.OnReceived += irc_OnReceived; // Bind the receive event
 
-            cp = new ChatProcessor(this); // Initialize the Chat Processor object
+            cp = new ChatProcessor(); // Initialize the Chat Processor object
         }
 
         // Run: Simply connect and login to the Twitch server

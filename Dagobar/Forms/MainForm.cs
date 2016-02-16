@@ -25,6 +25,13 @@ namespace Dagobar.Forms
             // Bind events
             Core.Bot.I.OnDataReceived += I_OnDataReceived;
             Core.Bot.I.OnMessageReceived += I_OnMessageReceived;
+            Core.TwitchAPI.I.OnFetched += I_OnFetched;
+        }
+
+        void I_OnFetched(object sender, EventArgs e)
+        {
+            // Update the viewer count label thread safe
+            ChangeLabelText(labelViewers, (string) Core.TwitchAPI.I.Values["chatters"]["chatter_count"]);
         }
 
         void I_OnMessageReceived(object sender, EventArgs e)
@@ -124,26 +131,6 @@ namespace Dagobar.Forms
                 else pluginsText += "  -  " + s; 
             }
             labelPlugins.Text = pluginsText;
-
-            new Thread(PrintViewersCountThread).Start(); // Create a thread because getting viewers count is blocking
-        }
-
-        public void PrintViewersCountThread()
-        {
-            string channel = Core.Bot.I.CurrentChannel;
-            string viewersCount = "0";
-
-            WebClient c = new WebClient();
-            string content = String.Empty;
-            try
-            {
-                content = c.DownloadString(String.Format("http://tmi.twitch.tv/group/user/{0}/chatters", channel));
-                JObject json = JObject.Parse(content);
-                viewersCount = (string)json["chatter_count"];
-            }
-            catch (WebException) { return; }
-
-            ChangeLabelText(labelViewers, viewersCount);
         }
 
         public delegate void ChangeLabelTextDelegate(Label label, string text);

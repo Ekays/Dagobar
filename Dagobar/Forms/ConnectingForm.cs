@@ -22,6 +22,7 @@ namespace Dagobar.Forms
         private void ConnectingForm_Load(object sender, EventArgs e)
         {
             Core.Bot.I.Run(); // Run the bot
+            Core.TwitchAPI.I.Run(); // Run the Twitch API fetcher
             MainForm f = new MainForm(); // Ouvre la fenêtre principale
             f.Show();
 

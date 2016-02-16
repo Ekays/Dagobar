@@ -16,6 +16,7 @@ namespace Dagobar.Core.ChatProcessing
     public struct IPluginContext
     {
         public Bot Bot { get; set; }
+        public TwitchAPI TwitchAPI { get; set; }
         public string Username { get; set; }
         public string Command { get; set; }
         public string[] Arguments { get; set; }
