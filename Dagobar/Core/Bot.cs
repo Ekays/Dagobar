@@ -6,11 +6,12 @@
  *          
  * */
 
+using Dagobar.Core.ChatProcessing;
 using System;
 
 namespace Dagobar.Core
 {
-    class Bot
+    public class Bot
     {
         #region Singleton
         // This is a singleton, because at any time, we only need one instance of this class.
@@ -26,12 +27,14 @@ namespace Dagobar.Core
         #endregion
 
         private IRC irc; // Private member: the IRC object which makes a basic connection with an IRC server
-
+        private ChatProcessor cp; // Private member: the CommandProcessor object which executes commands
         // ctor
         public Bot()
         {
             irc = new IRC(Properties.Settings.Default.BotChannel); // Initialize the IRC object with the last channel used
             irc.OnReceived += irc_OnReceived; // Bind the receive event
+
+            cp = new ChatProcessor(this); // Initialize the Chat Processor object
         }
 
         // Run: Simply connect and login to the Twitch server
