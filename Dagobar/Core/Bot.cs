@@ -8,6 +8,7 @@
 
 using Dagobar.Core.ChatProcessing;
 using System;
+using System.Collections.Generic;
 
 namespace Dagobar.Core
 {
@@ -32,6 +33,15 @@ namespace Dagobar.Core
             get
             {
                 return irc.CurrentChannel;
+            }
+        }
+
+        // List of the loaded plugins
+        public List<string> LoadedPlugins
+        {
+            get
+            {
+                return cp.LoadedPluginNames();
             }
         }
 

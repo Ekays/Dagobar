@@ -54,6 +54,16 @@ namespace Dagobar.Core.ChatProcessing
             bot.OnMessageReceived += bot_OnMessageReceived; // Bind event
         }
 
+        public List<string> LoadedPluginNames()
+        {
+            List<string> list = new List<string>();
+            foreach (IPlugin plugin in plugins)
+            {
+                list.Add(plugin.Name);
+            }
+            return list;
+        }
+
         void bot_OnMessageReceived(object sender, EventArgs e)
         {
             Core.ReceiveMessageEventArgs receivedMessage = (Core.ReceiveMessageEventArgs)e; // Cast the EventArgs as its real type

@@ -96,15 +96,22 @@ namespace Dagobar.Forms
             Properties.Settings.Default.Save(); // Save the settings
         }
 
-        private void tabControl_TabIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         // UpdateInformations: Update the displayed informations in the Informations tab
         private void UpdateInformations()
         {
             labelChannel.Text = Core.Bot.I.CurrentChannel; // Set the channel label to current channel
+
+            string pluginsText = ""; // Set the plugin label to loaded plugins
+            bool first = true;
+            foreach(string s in Core.Bot.I.LoadedPlugins) {
+                if (first)
+                {
+                    first = !first;
+                    pluginsText += s; 
+                }
+                else pluginsText += "  -  " + s; 
+            }
+            labelPlugins.Text = pluginsText;
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)

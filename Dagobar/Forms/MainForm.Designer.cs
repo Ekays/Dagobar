@@ -35,20 +35,22 @@
             this.richTextBoxChat = new System.Windows.Forms.RichTextBox();
             this.tabPageRaw = new System.Windows.Forms.TabPage();
             this.richTextBoxRaw = new System.Windows.Forms.RichTextBox();
+            this.tabPageInformations = new System.Windows.Forms.TabPage();
+            this.labelPlugins = new System.Windows.Forms.Label();
+            this.labelIntroPlugins = new System.Windows.Forms.Label();
+            this.labelChannel = new System.Windows.Forms.Label();
+            this.labelIntroChannel = new System.Windows.Forms.Label();
             this.tabPageOptions = new System.Windows.Forms.TabPage();
             this.tableLayoutPanelOptions = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSettings = new System.Windows.Forms.Button();
             this.buttonQuit = new System.Windows.Forms.Button();
             this.buttonChangeChannel = new System.Windows.Forms.Button();
-            this.tabPageInformations = new System.Windows.Forms.TabPage();
-            this.labelIntroChannel = new System.Windows.Forms.Label();
-            this.labelChannel = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPageChat.SuspendLayout();
             this.tabPageRaw.SuspendLayout();
+            this.tabPageInformations.SuspendLayout();
             this.tabPageOptions.SuspendLayout();
             this.tableLayoutPanelOptions.SuspendLayout();
-            this.tabPageInformations.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -66,7 +68,6 @@
             this.tabControl.Size = new System.Drawing.Size(634, 396);
             this.tabControl.TabIndex = 0;
             this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
-            this.tabControl.TabIndexChanged += new System.EventHandler(this.tabControl_TabIndexChanged);
             // 
             // tabPageChat
             // 
@@ -135,6 +136,60 @@
             this.richTextBoxRaw.TabIndex = 1;
             this.richTextBoxRaw.Text = "";
             // 
+            // tabPageInformations
+            // 
+            this.tabPageInformations.BackColor = System.Drawing.Color.SlateGray;
+            this.tabPageInformations.Controls.Add(this.labelPlugins);
+            this.tabPageInformations.Controls.Add(this.labelIntroPlugins);
+            this.tabPageInformations.Controls.Add(this.labelChannel);
+            this.tabPageInformations.Controls.Add(this.labelIntroChannel);
+            this.tabPageInformations.ForeColor = System.Drawing.Color.White;
+            this.tabPageInformations.Location = new System.Drawing.Point(4, 27);
+            this.tabPageInformations.Name = "tabPageInformations";
+            this.tabPageInformations.Size = new System.Drawing.Size(626, 365);
+            this.tabPageInformations.TabIndex = 3;
+            this.tabPageInformations.Text = "Informations";
+            // 
+            // labelPlugins
+            // 
+            this.labelPlugins.AutoSize = true;
+            this.labelPlugins.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlugins.Location = new System.Drawing.Point(121, 66);
+            this.labelPlugins.Name = "labelPlugins";
+            this.labelPlugins.Size = new System.Drawing.Size(96, 22);
+            this.labelPlugins.TabIndex = 3;
+            this.labelPlugins.Text = "Updating ...";
+            // 
+            // labelIntroPlugins
+            // 
+            this.labelIntroPlugins.AutoSize = true;
+            this.labelIntroPlugins.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIntroPlugins.Location = new System.Drawing.Point(8, 66);
+            this.labelIntroPlugins.Name = "labelIntroPlugins";
+            this.labelIntroPlugins.Size = new System.Drawing.Size(73, 22);
+            this.labelIntroPlugins.TabIndex = 2;
+            this.labelIntroPlugins.Text = "Plugins: ";
+            // 
+            // labelChannel
+            // 
+            this.labelChannel.AutoSize = true;
+            this.labelChannel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelChannel.Location = new System.Drawing.Point(121, 9);
+            this.labelChannel.Name = "labelChannel";
+            this.labelChannel.Size = new System.Drawing.Size(96, 22);
+            this.labelChannel.TabIndex = 1;
+            this.labelChannel.Text = "Updating ...";
+            // 
+            // labelIntroChannel
+            // 
+            this.labelIntroChannel.AutoSize = true;
+            this.labelIntroChannel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIntroChannel.Location = new System.Drawing.Point(8, 9);
+            this.labelIntroChannel.Name = "labelIntroChannel";
+            this.labelIntroChannel.Size = new System.Drawing.Size(80, 22);
+            this.labelIntroChannel.TabIndex = 0;
+            this.labelIntroChannel.Text = "Channel: ";
+            // 
             // tabPageOptions
             // 
             this.tabPageOptions.BackColor = System.Drawing.Color.SlateGray;
@@ -195,38 +250,6 @@
             this.buttonChangeChannel.UseVisualStyleBackColor = true;
             this.buttonChangeChannel.Click += new System.EventHandler(this.buttonChangeChannel_Click);
             // 
-            // tabPageInformations
-            // 
-            this.tabPageInformations.BackColor = System.Drawing.Color.SlateGray;
-            this.tabPageInformations.Controls.Add(this.labelChannel);
-            this.tabPageInformations.Controls.Add(this.labelIntroChannel);
-            this.tabPageInformations.ForeColor = System.Drawing.Color.White;
-            this.tabPageInformations.Location = new System.Drawing.Point(4, 27);
-            this.tabPageInformations.Name = "tabPageInformations";
-            this.tabPageInformations.Size = new System.Drawing.Size(626, 365);
-            this.tabPageInformations.TabIndex = 3;
-            this.tabPageInformations.Text = "Informations";
-            // 
-            // labelIntroChannel
-            // 
-            this.labelIntroChannel.AutoSize = true;
-            this.labelIntroChannel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIntroChannel.Location = new System.Drawing.Point(8, 9);
-            this.labelIntroChannel.Name = "labelIntroChannel";
-            this.labelIntroChannel.Size = new System.Drawing.Size(80, 22);
-            this.labelIntroChannel.TabIndex = 0;
-            this.labelIntroChannel.Text = "Channel: ";
-            // 
-            // labelChannel
-            // 
-            this.labelChannel.AutoSize = true;
-            this.labelChannel.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelChannel.Location = new System.Drawing.Point(121, 9);
-            this.labelChannel.Name = "labelChannel";
-            this.labelChannel.Size = new System.Drawing.Size(96, 22);
-            this.labelChannel.TabIndex = 1;
-            this.labelChannel.Text = "Updating ...";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,10 +266,10 @@
             this.tabPageChat.ResumeLayout(false);
             this.tabPageChat.PerformLayout();
             this.tabPageRaw.ResumeLayout(false);
-            this.tabPageOptions.ResumeLayout(false);
-            this.tableLayoutPanelOptions.ResumeLayout(false);
             this.tabPageInformations.ResumeLayout(false);
             this.tabPageInformations.PerformLayout();
+            this.tabPageOptions.ResumeLayout(false);
+            this.tableLayoutPanelOptions.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -267,6 +290,8 @@
         private System.Windows.Forms.TabPage tabPageInformations;
         private System.Windows.Forms.Label labelIntroChannel;
         private System.Windows.Forms.Label labelChannel;
+        private System.Windows.Forms.Label labelPlugins;
+        private System.Windows.Forms.Label labelIntroPlugins;
 
 
 

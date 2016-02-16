@@ -21,7 +21,6 @@ namespace Dagobar.Forms
 
         private void ConnectingForm_Load(object sender, EventArgs e)
         {
-            //TODO: Thread this
             Core.Bot.I.Run(); // Run the bot
             MainForm f = new MainForm(); // Ouvre la fenêtre principale
             f.Show();
