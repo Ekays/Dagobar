@@ -92,7 +92,7 @@
             this.textBoxChat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxChat.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.textBoxChat.ForeColor = System.Drawing.Color.White;
-            this.textBoxChat.Location = new System.Drawing.Point(3, 332);
+            this.textBoxChat.Location = new System.Drawing.Point(3, 334);
             this.textBoxChat.Name = "textBoxChat";
             this.textBoxChat.Size = new System.Drawing.Size(620, 25);
             this.textBoxChat.TabIndex = 1;
@@ -126,17 +126,15 @@
             // 
             // richTextBoxRaw
             // 
-            this.richTextBoxRaw.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxRaw.BackColor = System.Drawing.Color.SlateGray;
             this.richTextBoxRaw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBoxRaw.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.richTextBoxRaw.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBoxRaw.ForeColor = System.Drawing.Color.White;
-            this.richTextBoxRaw.Location = new System.Drawing.Point(3, 3);
+            this.richTextBoxRaw.Location = new System.Drawing.Point(0, 0);
             this.richTextBoxRaw.Name = "richTextBoxRaw";
             this.richTextBoxRaw.ReadOnly = true;
-            this.richTextBoxRaw.Size = new System.Drawing.Size(620, 354);
+            this.richTextBoxRaw.Size = new System.Drawing.Size(626, 365);
             this.richTextBoxRaw.TabIndex = 1;
             this.richTextBoxRaw.Text = "";
             // 
