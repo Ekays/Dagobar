@@ -6,9 +6,13 @@
  *          
  * */
 
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Threading;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Dagobar.Forms
 {
@@ -96,6 +100,14 @@ namespace Dagobar.Forms
             Properties.Settings.Default.Save(); // Save the settings
         }
 
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl.SelectedTab == tabPageInformations) // On tab changed, if new tab is informations tab
+            {
+                UpdateInformations(); // Update informations in this tab
+            }
+        }
+
         // UpdateInformations: Update the displayed informations in the Informations tab
         private void UpdateInformations()
         {
@@ -112,14 +124,35 @@ namespace Dagobar.Forms
                 else pluginsText += "  -  " + s; 
             }
             labelPlugins.Text = pluginsText;
+
+            new Thread(PrintViewersCountThread).Start(); // Create a thread because getting viewers count is blocking
         }
 
-        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        public void PrintViewersCountThread()
         {
-            if (tabControl.SelectedTab == tabPageInformations) // On tab changed, if new tab is informations tab
+            string channel = Core.Bot.I.CurrentChannel;
+            string viewersCount = "0";
+
+            WebClient c = new WebClient();
+            string content = String.Empty;
+            try
             {
-                UpdateInformations(); // Update informations in this tab
+                content = c.DownloadString(String.Format("http://tmi.twitch.tv/group/user/{0}/chatters", channel));
+                JObject json = JObject.Parse(content);
+                viewersCount = (string)json["chatter_count"];
             }
+            catch (WebException) { return; }
+
+            ChangeLabelText(labelViewers, viewersCount);
+        }
+
+        public delegate void ChangeLabelTextDelegate(Label label, string text);
+        public void ChangeLabelText(Label label, string text)
+        {
+            if (InvokeRequired)
+                Invoke((ChangeLabelTextDelegate)ChangeLabelText, new object[] { label, text });
+            else
+                label.Text = text;
         }
     }
 }

@@ -21,7 +21,10 @@ namespace Dagobar.Core.ChatProcessing
         public ChatProcessor(Bot b)
         {
             bot = b;
-            string[] dllFileNames = Directory.GetFiles(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\Plugins", "*.dll", SearchOption.AllDirectories); // Get all the dll files inside the Plugins folder next to the executable
+
+            string pluginFolderPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\Plugins"; // Get the Plugins folder
+            if (!Directory.Exists(pluginFolderPath)) Directory.CreateDirectory(pluginFolderPath); // If the Plugins folder dont exists, create it
+            string[] dllFileNames = Directory.GetFiles(pluginFolderPath, "*.dll", SearchOption.AllDirectories); // Get all the dll files inside the Plugins folder next to the executable
 
             List<Assembly> assemblies = new List<Assembly>(); // List of assemblies of these dlls
             foreach (string dllFileName in dllFileNames) // Foreach dll found
