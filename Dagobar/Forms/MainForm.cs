@@ -13,6 +13,7 @@ using System.Net;
 using System.Threading;
 using System.Windows.Forms;
 using System.Linq;
+using System.Diagnostics;
 
 namespace Dagobar.Forms
 {
@@ -25,7 +26,19 @@ namespace Dagobar.Forms
             // Bind events
             Core.Bot.I.OnDataReceived += I_OnDataReceived;
             Core.Bot.I.OnMessageReceived += I_OnMessageReceived;
+            Core.Bot.I.OnJoin += I_OnJoin;
+            Core.Bot.I.OnPart += I_OnPart;
             Core.TwitchAPI.I.OnFetched += I_OnFetched;
+        }
+
+        void I_OnPart(object sender, EventArgs e)
+        {
+            RemoveItemListbox(listBoxChatters, ((Core.JoinNPartEventArgs)e).Username);
+        }
+
+        void I_OnJoin(object sender, EventArgs e)
+        {
+            AddItemListbox(listBoxChatters, ((Core.JoinNPartEventArgs)e).Username);
         }
 
         void I_OnFetched(object sender, EventArgs e)
@@ -140,6 +153,33 @@ namespace Dagobar.Forms
                 Invoke((ChangeLabelTextDelegate)ChangeLabelText, new object[] { label, text });
             else
                 label.Text = text;
+        }
+
+        public delegate void AddItemListboxDelegate(ListBox listbox, string text);
+        public void AddItemListbox(ListBox listbox, string text)
+        {
+            if (InvokeRequired)
+                Invoke((AddItemListboxDelegate)AddItemListbox, new object[] { listbox, text });
+            else
+                listbox.Items.Add(text);
+        }
+
+        public delegate void RemoveItemListboxDelegate(ListBox listbox, string text);
+        public void RemoveItemListbox(ListBox listbox, string text)
+        {
+            if (InvokeRequired)
+                Invoke((RemoveItemListboxDelegate)RemoveItemListbox, new object[] { listbox, text });
+            else
+                listbox.Items.Remove(text);
+        }
+
+        private void richTextBoxChat_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            // When the user clicks a link, ask if he wants to open it
+            if (MessageBox.Show("Voulez-vous ouvrir ce lien ?", e.LinkText, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                Process.Start(e.LinkText); // If yes, open it
+            }
         }
     }
 }

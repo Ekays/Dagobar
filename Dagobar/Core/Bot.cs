@@ -60,11 +60,6 @@ namespace Dagobar.Core
         public void Run()
         {
             irc.Connect(ConnectionInformations.Twitch); // Connect to Twitch
-            irc.Login(new AuthentificationInformations() // Login with the details in the Settings
-            {
-                Nick = Properties.Settings.Default.BotNickname,
-                Password = Properties.Settings.Default.BotOAuth
-            });
 
             /*
              * Ask for Twitch IRC permissions
@@ -73,6 +68,12 @@ namespace Dagobar.Core
                 "CAP REQ :twitch.tv/tags",
                 "CAP REQ :twitch.tv/membership",
                 "CAP REQ :twitch.tv/commands"
+            });
+
+            irc.Login(new AuthentificationInformations() // Login with the details in the Settings
+            {
+                Nick = Properties.Settings.Default.BotNickname,
+                Password = Properties.Settings.Default.BotOAuth
             });
         }
         // Close: Disconnect from the Twitch server

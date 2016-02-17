@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageChat = new System.Windows.Forms.TabPage();
+            this.listBoxChatters = new System.Windows.Forms.ListBox();
             this.textBoxChat = new System.Windows.Forms.TextBox();
             this.richTextBoxChat = new System.Windows.Forms.RichTextBox();
             this.tabPageRaw = new System.Windows.Forms.TabPage();
@@ -77,6 +78,7 @@
             // 
             // tabPageChat
             // 
+            this.tabPageChat.Controls.Add(this.listBoxChatters);
             this.tabPageChat.Controls.Add(this.textBoxChat);
             this.tabPageChat.Controls.Add(this.richTextBoxChat);
             this.tabPageChat.Location = new System.Drawing.Point(4, 27);
@@ -85,6 +87,20 @@
             this.tabPageChat.TabIndex = 0;
             this.tabPageChat.Text = "Chat";
             this.tabPageChat.UseVisualStyleBackColor = true;
+            // 
+            // listBoxChatters
+            // 
+            this.listBoxChatters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxChatters.BackColor = System.Drawing.Color.SlateGray;
+            this.listBoxChatters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.listBoxChatters.ForeColor = System.Drawing.Color.White;
+            this.listBoxChatters.FormattingEnabled = true;
+            this.listBoxChatters.ItemHeight = 18;
+            this.listBoxChatters.Location = new System.Drawing.Point(424, 3);
+            this.listBoxChatters.Name = "listBoxChatters";
+            this.listBoxChatters.Size = new System.Drawing.Size(199, 326);
+            this.listBoxChatters.TabIndex = 2;
             // 
             // textBoxChat
             // 
@@ -112,9 +128,10 @@
             this.richTextBoxChat.Location = new System.Drawing.Point(3, 3);
             this.richTextBoxChat.Name = "richTextBoxChat";
             this.richTextBoxChat.ReadOnly = true;
-            this.richTextBoxChat.Size = new System.Drawing.Size(620, 323);
+            this.richTextBoxChat.Size = new System.Drawing.Size(415, 326);
             this.richTextBoxChat.TabIndex = 0;
             this.richTextBoxChat.Text = "";
+            this.richTextBoxChat.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBoxChat_LinkClicked);
             // 
             // tabPageRaw
             // 
@@ -309,8 +326,8 @@
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(650, 435);
             this.Name = "MainForm";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Dagobar";
             this.tabControl.ResumeLayout(false);
             this.tabPageChat.ResumeLayout(false);
@@ -347,6 +364,7 @@
         private System.Windows.Forms.RichTextBox richTextBoxAbout;
         private System.Windows.Forms.Label labelViewers;
         private System.Windows.Forms.Label labelIntroViewers;
+        private System.Windows.Forms.ListBox listBoxChatters;
 
 
 
