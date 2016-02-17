@@ -17,10 +17,12 @@ namespace Dagobar.Core.ChatProcessing
     {
         List<IPlugin> plugins = new List<IPlugin>(); // List of loaded plugins
         Bot bot; // Store the bot instance in a variable
-
-        public ChatProcessor(Bot b)
+        TwitchAPI api; // Sore the Twitch api instance in a variable
+        public ChatProcessor(Bot b, TwitchAPI ta)
         {
             bot = b;
+            api = ta;
+
             string pluginFolderPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\Plugins"; // Get the Plugins folder
             if (!Directory.Exists(pluginFolderPath)) Directory.CreateDirectory(pluginFolderPath); // If the Plugins folder dont exists, create it
             string[] dllFileNames = Directory.GetFiles(pluginFolderPath, "*.dll", SearchOption.AllDirectories); // Get all the dll files inside the Plugins folder next to the executable
@@ -50,6 +52,11 @@ namespace Dagobar.Core.ChatProcessing
             foreach (Type type in pluginTypes) // Foreach plugin
             {
                 IPlugin plugin = (IPlugin)Activator.CreateInstance(type); // Inititialize it
+                plugin.Initialize(new IPluginContext
+                {
+                    Bot = bot,
+                    TwitchAPI = api
+                });
                 plugins.Add(plugin); // Add it to the list of Plugins
             }
 
@@ -90,7 +97,7 @@ namespace Dagobar.Core.ChatProcessing
                     Command = command,
                     Text = receivedMessage.Text,
                     Bot = bot,
-                    TwitchAPI = Core.TwitchAPI.I
+                    TwitchAPI = api
                 });
             }
         }
