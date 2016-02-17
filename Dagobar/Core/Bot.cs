@@ -111,7 +111,7 @@ namespace Dagobar.Core
                     string channel = dataSplit[2].Remove(0, 1);
 
                     localEvent = OnJoin;
-                    if (localEvent != null) localEvent(this, new JoinNPartEventArgs(username, channel));
+                    if (localEvent != null) localEvent(this, new JoinPartEventArgs(username, channel));
                 }
                 else if (dataSplit[1] == "PART")
                 {
@@ -119,7 +119,7 @@ namespace Dagobar.Core
                     string channel = dataSplit[2].Remove(0, 1);
 
                     localEvent = OnPart;
-                    if (localEvent != null) localEvent(this, new JoinNPartEventArgs(username, channel));
+                    if (localEvent != null) localEvent(this, new JoinPartEventArgs(username, channel));
                 }
             }
 

@@ -14,7 +14,7 @@ namespace Dagobar.Core
      * Those are just storing class for when i throw events
      * */
 
-    class ReceiveDataEventArgs : EventArgs
+    public class ReceiveDataEventArgs : EventArgs
     {
         private string d = String.Empty;
         public string Data
@@ -31,7 +31,7 @@ namespace Dagobar.Core
         }
     }
 
-    class ReceiveMessageEventArgs : EventArgs
+    public class ReceiveMessageEventArgs : EventArgs
     {
         private string username = String.Empty, text = String.Empty;
         private string[] informations;
@@ -48,14 +48,14 @@ namespace Dagobar.Core
         }
     }
 
-    class JoinNPartEventArgs : EventArgs
+    public class JoinPartEventArgs : EventArgs
     {
         private string username = String.Empty, channel = String.Empty;
 
         public string Username { get { return username; } }
         public string Channel { get { return channel; } }
 
-        public JoinNPartEventArgs(string u, string c)
+        public JoinPartEventArgs(string u, string c)
         {
             username = u;
             channel = c;

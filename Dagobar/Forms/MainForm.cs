@@ -33,12 +33,12 @@ namespace Dagobar.Forms
 
         void I_OnPart(object sender, EventArgs e)
         {
-            RemoveItemListbox(listBoxChatters, ((Core.JoinNPartEventArgs)e).Username);
+            RemoveItemListbox(listBoxChatters, ((Core.JoinPartEventArgs)e).Username);
         }
 
         void I_OnJoin(object sender, EventArgs e)
         {
-            AddItemListbox(listBoxChatters, ((Core.JoinNPartEventArgs)e).Username);
+            AddItemListbox(listBoxChatters, ((Core.JoinPartEventArgs)e).Username);
         }
 
         void I_OnFetched(object sender, EventArgs e)

@@ -13,6 +13,7 @@ namespace Dagobar.Core.ChatProcessing
     public interface IPlugin
     {
         string Name { get; set; }
+        void Initialize(IPluginContext context);
         void PerformCommand(IPluginContext context);
     }
 }

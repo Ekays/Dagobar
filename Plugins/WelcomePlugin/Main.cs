@@ -25,14 +25,10 @@ namespace WelcomePlugin
         string configPath = (System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)) + @"\config.json"; // Path to the json file which stores the words list
         bool validConfig = false; // Is the config file valid 
         string[] welcomeWords; // Array of words used for recognition
-        List<string> alreadyWelcomed = new List<string>(); // List of persons alread ywelcomed
+        List<string> alreadyWelcomed = new List<string>(); // List of persons already welcomed
 
-        public WelcomePlugin_Main()
-        {
-            LoadConfig();
-
-        }
-        public void LoadConfig()
+        // LoadConfig: Load the words used for recognition 
+        private void LoadConfig()
         {
             JObject json;
             if (System.IO.File.Exists(configPath)) // If the file exists
@@ -53,15 +49,25 @@ namespace WelcomePlugin
             }
         }
 
+        public void Initialize(IPluginContext context)
+        {
+            // Bind event
+            context.Bot.OnPart += Bot_OnPart;
+
+            // Load config
+            LoadConfig();
+        }
+
+        void Bot_OnPart(object sender, EventArgs e)
+        {
+            alreadyWelcomed.Remove(((Dagobar.Core.JoinPartEventArgs)e).Username); // If a viewer leaves, we can welcome him again
+        }
+
         public void PerformCommand(IPluginContext context)
         {
-            if (!validConfig)
-            {
-                LoadConfig();
-                return;
-            }
+            if (!validConfig) return;
 
-            if (alreadyWelcomed.Contains(context.Username)) return;
+            if (alreadyWelcomed.Contains(context.Username)) return; // Don't welcome twice
 
             string lowerText = context.Text.ToLower(); // Get the sended text to lower
 
