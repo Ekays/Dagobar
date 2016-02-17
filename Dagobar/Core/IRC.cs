@@ -157,7 +157,7 @@ namespace Dagobar.Core
         }
 
         // SendData: Send raw message to the server
-        private void SendData(string[] data)
+        public void SendData(string[] data)
         {
             // If the client isn't connected, return
             if (!IsConnected) return;
@@ -172,13 +172,13 @@ namespace Dagobar.Core
         }
 
         // SendData: Alias for SendData
-        private void SendData(string data)
+        public void SendData(string data)
         {
             SendData(new string[] { data });
         }
 
         // SendData: Alias for SendData
-        private void SendData(List<string> data)
+        public void SendData(List<string> data)
         {
             SendData(data.ToArray());
         }

@@ -34,14 +34,31 @@ namespace Dagobar.Core
     class ReceiveMessageEventArgs : EventArgs
     {
         private string username = String.Empty, text = String.Empty;
+        private string[] informations;
 
         public string Username { get { return username; } }
         public string Text { get { return text; } }
+        public string[] Informations { get { return informations; } }
 
-        public ReceiveMessageEventArgs(string u, string t)
+        public ReceiveMessageEventArgs(string u, string t, string[] i)
         {
             username = u;
             text = t;
+            informations = i;
+        }
+    }
+
+    class JoinNPartEventArgs : EventArgs
+    {
+        private string username = String.Empty, channel = String.Empty;
+
+        public string Username { get { return username; } }
+        public string Channel { get { return channel; } }
+
+        public JoinNPartEventArgs(string u, string c)
+        {
+            username = u;
+            channel = c;
         }
     }
 }

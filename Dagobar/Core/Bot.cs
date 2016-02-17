@@ -53,7 +53,7 @@ namespace Dagobar.Core
             irc = new IRC(Properties.Settings.Default.BotChannel); // Initialize the IRC object with the last channel used
             irc.OnReceived += irc_OnReceived; // Bind the receive event
 
-            cp = new ChatProcessor(); // Initialize the Chat Processor object
+            cp = new ChatProcessor(this); // Initialize the Chat Processor object
         }
 
         // Run: Simply connect and login to the Twitch server
@@ -64,6 +64,15 @@ namespace Dagobar.Core
             {
                 Nick = Properties.Settings.Default.BotNickname,
                 Password = Properties.Settings.Default.BotOAuth
+            });
+
+            /*
+             * Ask for Twitch IRC permissions
+             * */
+            irc.SendData(new string[]{
+                "CAP REQ :twitch.tv/tags",
+                "CAP REQ :twitch.tv/membership",
+                "CAP REQ :twitch.tv/commands"
             });
         }
         // Close: Disconnect from the Twitch server
@@ -81,9 +90,12 @@ namespace Dagobar.Core
         // EventHandlers 
         public event EventHandler OnDataReceived; // This one is for raw data
         public event EventHandler OnMessageReceived; // And this one is for preprocessed messages
+        public event EventHandler OnJoin; // When someone joins the chat
+        public event EventHandler OnPart; // When someone leaves :(
 
         public void irc_OnReceived(object sender, EventArgs e) // Event from the IRC instance sending a raw message
         {
+            // A sample message : @color=#FF0000;display-name=r00tKiller;emotes=;mod=0;room-id=40591460;subscriber=0;turbo=0;user-id=41589471;user-type= :r00tkiller!r00tkiller@r00tkiller.tmi.twitch.tv PRIVMSG #mr_ari :ok
             // Send the raw message event
             EventHandler localEvent = OnDataReceived;
             if (localEvent != null) localEvent(this, e);
@@ -91,26 +103,46 @@ namespace Dagobar.Core
             string data = ((Core.ReceiveDataEventArgs)e).Data; // Get the raw message from arguments
             string[] dataSplit = data.Split(' '); // Split the raw message with a space
 
-            if (dataSplit.Length >= 2 && dataSplit[1] == "PRIVMSG") // This checks if the data is a user's message
+            if (dataSplit.Length == 3)
+            {
+                if (dataSplit[1] == "JOIN"){
+                    string username = dataSplit[0].Split('!')[0].Remove(0, 1);
+                    string channel = dataSplit[2].Remove(0, 1);
+
+                    localEvent = OnJoin;
+                    if (localEvent != null) localEvent(this, new JoinNPartEventArgs(username, channel));
+                }
+                else if (dataSplit[1] == "PART")
+                {
+                    string username = dataSplit[0].Split('!')[0].Remove(0, 1);
+                    string channel = dataSplit[2].Remove(0, 1);
+
+                    localEvent = OnPart;
+                    if (localEvent != null) localEvent(this, new JoinNPartEventArgs(username, channel));
+                }
+            }
+
+            if (dataSplit.Length >= 3 && dataSplit[2] == "PRIVMSG") // This checks if the data is a user's message
             {
                 /* 
                  * A lot of processing in the following lines
                  * */
-                string username = data.Split('!')[0].Remove(0, 1);
+                string username = dataSplit[1].Split('!')[0].Remove(0, 1);
 
                 string text = "";
 
-                for (int i = 3; i < dataSplit.Length; i++)
+                for (int i = 4; i < dataSplit.Length; i++)
                 {
                     text += dataSplit[i] + " ";
                 }
-
                 text = text.Remove(0, 1);
                 text = text.Remove(text.Length - 1, 1);
 
+                string[] informations = dataSplit[0].Remove(0, 1).Split(';');
+
                 // Send the processed message event
                 localEvent = OnMessageReceived;
-                if (localEvent != null) localEvent(this, (EventArgs) new Core.ReceiveMessageEventArgs(username, text));
+                if (localEvent != null) localEvent(this, (EventArgs) new Core.ReceiveMessageEventArgs(username, text, informations));
             }
         }
 
