@@ -43,10 +43,10 @@
             // labelBotNickname
             // 
             this.labelBotNickname.AutoSize = true;
-            this.labelBotNickname.Font = new System.Drawing.Font("Champagne & Limousines", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBotNickname.Location = new System.Drawing.Point(65, 80);
+            this.labelBotNickname.Font = new System.Drawing.Font("Open Sans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelBotNickname.Location = new System.Drawing.Point(-4, 75);
             this.labelBotNickname.Name = "labelBotNickname";
-            this.labelBotNickname.Size = new System.Drawing.Size(225, 24);
+            this.labelBotNickname.Size = new System.Drawing.Size(237, 26);
             this.labelBotNickname.TabIndex = 1;
             this.labelBotNickname.Text = "Nom d\'utilisateur du bot:";
             // 
@@ -54,17 +54,17 @@
             // 
             this.textBoxBotNick.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxBotNick.Font = new System.Drawing.Font("Open Sans", 12.5F);
-            this.textBoxBotNick.Location = new System.Drawing.Point(296, 75);
+            this.textBoxBotNick.Location = new System.Drawing.Point(239, 75);
             this.textBoxBotNick.Name = "textBoxBotNick";
-            this.textBoxBotNick.Size = new System.Drawing.Size(376, 30);
+            this.textBoxBotNick.Size = new System.Drawing.Size(433, 30);
             this.textBoxBotNick.TabIndex = 1;
             // 
             // buttonSave
             // 
-            this.buttonSave.Font = new System.Drawing.Font("Champagne & Limousines", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(296, 183);
+            this.buttonSave.Font = new System.Drawing.Font("Open Sans", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(239, 183);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(376, 41);
+            this.buttonSave.Size = new System.Drawing.Size(433, 41);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Sauvegarder et relâcher Dagobar";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -74,20 +74,20 @@
             // 
             this.textBoxOAuth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxOAuth.Font = new System.Drawing.Font("Open Sans", 12.5F);
-            this.textBoxOAuth.Location = new System.Drawing.Point(296, 110);
+            this.textBoxOAuth.Location = new System.Drawing.Point(239, 110);
             this.textBoxOAuth.Name = "textBoxOAuth";
             this.textBoxOAuth.PasswordChar = '*';
-            this.textBoxOAuth.Size = new System.Drawing.Size(376, 30);
+            this.textBoxOAuth.Size = new System.Drawing.Size(433, 30);
             this.textBoxOAuth.TabIndex = 2;
             this.textBoxOAuth.UseSystemPasswordChar = true;
             // 
             // labelOAuth
             // 
             this.labelOAuth.AutoSize = true;
-            this.labelOAuth.Font = new System.Drawing.Font("Champagne & Limousines", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOAuth.Location = new System.Drawing.Point(153, 115);
+            this.labelOAuth.Font = new System.Drawing.Font("Open Sans", 14.25F);
+            this.labelOAuth.Location = new System.Drawing.Point(94, 110);
             this.labelOAuth.Name = "labelOAuth";
-            this.labelOAuth.Size = new System.Drawing.Size(137, 24);
+            this.labelOAuth.Size = new System.Drawing.Size(139, 26);
             this.labelOAuth.TabIndex = 8;
             this.labelOAuth.Text = "OAuth du bot:";
             // 
@@ -95,18 +95,18 @@
             // 
             this.textBoxOwner.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxOwner.Font = new System.Drawing.Font("Open Sans", 12.5F);
-            this.textBoxOwner.Location = new System.Drawing.Point(296, 145);
+            this.textBoxOwner.Location = new System.Drawing.Point(239, 145);
             this.textBoxOwner.Name = "textBoxOwner";
-            this.textBoxOwner.Size = new System.Drawing.Size(376, 30);
+            this.textBoxOwner.Size = new System.Drawing.Size(433, 30);
             this.textBoxOwner.TabIndex = 3;
             // 
             // labelOwner
             // 
             this.labelOwner.AutoSize = true;
-            this.labelOwner.Font = new System.Drawing.Font("Champagne & Limousines", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelOwner.Location = new System.Drawing.Point(107, 150);
+            this.labelOwner.Font = new System.Drawing.Font("Open Sans", 14.25F);
+            this.labelOwner.Location = new System.Drawing.Point(44, 145);
             this.labelOwner.Name = "labelOwner";
-            this.labelOwner.Size = new System.Drawing.Size(183, 24);
+            this.labelOwner.Size = new System.Drawing.Size(189, 26);
             this.labelOwner.TabIndex = 10;
             this.labelOwner.Text = "Propriétaire du bot:";
             // 
