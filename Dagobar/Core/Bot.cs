@@ -52,8 +52,6 @@ namespace Dagobar.Core
         {
             irc = new IRC(Properties.Settings.Default.BotChannel); // Initialize the IRC object with the last channel used
             irc.OnReceived += irc_OnReceived; // Bind the receive event
-
-            cp = new ChatProcessor(this, Core.TwitchAPI.I); // Initialize the Chat Processor object
         }
 
         // Run: Simply connect and login to the Twitch server
@@ -75,6 +73,8 @@ namespace Dagobar.Core
                 Nick = Properties.Settings.Default.BotNickname,
                 Password = Properties.Settings.Default.BotOAuth
             });
+
+            cp = new ChatProcessor(this, Core.TwitchAPI.I); // Initialize the Chat Processor object
         }
         // Close: Disconnect from the Twitch server
         public void Close()

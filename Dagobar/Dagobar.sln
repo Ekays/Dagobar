@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dagobar", "Dagobar.csproj", "{953E2A77-6186-40FC-994F-099B34D93D68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugPlugin", "..\Plugins\DebugPlugin\DebugPlugin.csproj", "{680EBE5F-E17C-407E-B67C-DE4EFDD9569E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{953E2A77-6186-40FC-994F-099B34D93D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{953E2A77-6186-40FC-994F-099B34D93D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{953E2A77-6186-40FC-994F-099B34D93D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{680EBE5F-E17C-407E-B67C-DE4EFDD9569E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{680EBE5F-E17C-407E-B67C-DE4EFDD9569E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{680EBE5F-E17C-407E-B67C-DE4EFDD9569E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{680EBE5F-E17C-407E-B67C-DE4EFDD9569E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
