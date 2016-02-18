@@ -45,6 +45,13 @@ namespace Dagobar.Core
             }
         }
 
+        // EventHandlers 
+        public event EventHandler OnDataReceived; // This one is for raw data
+        public event EventHandler OnMessageReceived; // And this one is for preprocessed messages
+        public event EventHandler OnJoin; // When someone joins the chat
+        public event EventHandler OnPart; // When someone leaves :(
+        public event EventHandler OnChannelChanged; // When the current channel is remplaced
+
         private IRC irc; // Private member: the IRC object which makes a basic connection with an IRC server
         private ChatProcessor cp; // Private member: the CommandProcessor object which executes commands
         // ctor
@@ -86,17 +93,13 @@ namespace Dagobar.Core
         public void ChangeChannel(string newChannel)
         {
             irc.ChangeChannel(newChannel); // Tell the IRC instance to leave current channel and join a new one
-        }
 
-        // EventHandlers 
-        public event EventHandler OnDataReceived; // This one is for raw data
-        public event EventHandler OnMessageReceived; // And this one is for preprocessed messages
-        public event EventHandler OnJoin; // When someone joins the chat
-        public event EventHandler OnPart; // When someone leaves :(
+            EventHandler localEvent = OnChannelChanged;
+            if (localEvent != null) localEvent(this, EventArgs.Empty);
+        }
 
         public void irc_OnReceived(object sender, EventArgs e) // Event from the IRC instance sending a raw message
         {
-            // A sample message : @color=#FF0000;display-name=r00tKiller;emotes=;mod=0;room-id=40591460;subscriber=0;turbo=0;user-id=41589471;user-type= :r00tkiller!r00tkiller@r00tkiller.tmi.twitch.tv PRIVMSG #mr_ari :ok
             // Send the raw message event
             EventHandler localEvent = OnDataReceived;
             if (localEvent != null) localEvent(this, e);
