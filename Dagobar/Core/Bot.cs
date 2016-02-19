@@ -41,7 +41,7 @@ namespace Dagobar.Core
         {
             get
             {
-                return cp.LoadedPluginNames();
+                return ChatProcessor.LoadedPluginNames();
             }
         }
 
@@ -53,7 +53,8 @@ namespace Dagobar.Core
         public event EventHandler OnChannelChanged; // When the current channel is remplaced
 
         private IRC irc; // Private member: the IRC object which makes a basic connection with an IRC server
-        private ChatProcessor cp; // Private member: the CommandProcessor object which executes commands
+        public ChatProcessor ChatProcessor; // Public member: the CommandProcessor object which executes commands
+
         // ctor
         public Bot()
         {
@@ -81,7 +82,7 @@ namespace Dagobar.Core
                 Password = Properties.Settings.Default.BotOAuth
             });
 
-            cp = new ChatProcessor(this, Core.TwitchAPI.I); // Initialize the Chat Processor object
+            ChatProcessor = new ChatProcessor(this, Core.TwitchAPI.I); // Initialize the Chat Processor object
         }
         // Close: Disconnect from the Twitch server
         public void Close()

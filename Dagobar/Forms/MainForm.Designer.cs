@@ -39,7 +39,6 @@
             this.tabPageInformations = new System.Windows.Forms.TabPage();
             this.labelViewers = new System.Windows.Forms.Label();
             this.labelIntroViewers = new System.Windows.Forms.Label();
-            this.labelPlugins = new System.Windows.Forms.Label();
             this.labelIntroPlugins = new System.Windows.Forms.Label();
             this.labelChannel = new System.Windows.Forms.Label();
             this.labelIntroChannel = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.buttonChangeChannel = new System.Windows.Forms.Button();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.richTextBoxAbout = new System.Windows.Forms.RichTextBox();
+            this.checkedListBoxPlugins = new System.Windows.Forms.CheckedListBox();
             this.tabControl.SuspendLayout();
             this.tabPageChat.SuspendLayout();
             this.tabPageRaw.SuspendLayout();
@@ -160,9 +160,9 @@
             // tabPageInformations
             // 
             this.tabPageInformations.BackColor = System.Drawing.Color.SlateGray;
+            this.tabPageInformations.Controls.Add(this.checkedListBoxPlugins);
             this.tabPageInformations.Controls.Add(this.labelViewers);
             this.tabPageInformations.Controls.Add(this.labelIntroViewers);
-            this.tabPageInformations.Controls.Add(this.labelPlugins);
             this.tabPageInformations.Controls.Add(this.labelIntroPlugins);
             this.tabPageInformations.Controls.Add(this.labelChannel);
             this.tabPageInformations.Controls.Add(this.labelIntroChannel);
@@ -192,16 +192,6 @@
             this.labelIntroViewers.Size = new System.Drawing.Size(77, 22);
             this.labelIntroViewers.TabIndex = 4;
             this.labelIntroViewers.Text = "Viewers: ";
-            // 
-            // labelPlugins
-            // 
-            this.labelPlugins.AutoSize = true;
-            this.labelPlugins.Font = new System.Drawing.Font("Open Sans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlugins.Location = new System.Drawing.Point(121, 53);
-            this.labelPlugins.Name = "labelPlugins";
-            this.labelPlugins.Size = new System.Drawing.Size(105, 22);
-            this.labelPlugins.TabIndex = 3;
-            this.labelPlugins.Text = "Mise à jour...";
             // 
             // labelIntroPlugins
             // 
@@ -317,6 +307,19 @@
             this.richTextBoxAbout.TabIndex = 0;
             this.richTextBoxAbout.Text = resources.GetString("richTextBoxAbout.Text");
             // 
+            // checkedListBoxPlugins
+            // 
+            this.checkedListBoxPlugins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkedListBoxPlugins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBoxPlugins.FormattingEnabled = true;
+            this.checkedListBoxPlugins.Location = new System.Drawing.Point(125, 53);
+            this.checkedListBoxPlugins.Name = "checkedListBoxPlugins";
+            this.checkedListBoxPlugins.Size = new System.Drawing.Size(493, 302);
+            this.checkedListBoxPlugins.TabIndex = 6;
+            this.checkedListBoxPlugins.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPlugins_ItemCheck);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,13 +361,13 @@
         private System.Windows.Forms.TabPage tabPageInformations;
         private System.Windows.Forms.Label labelIntroChannel;
         private System.Windows.Forms.Label labelChannel;
-        private System.Windows.Forms.Label labelPlugins;
         private System.Windows.Forms.Label labelIntroPlugins;
         private System.Windows.Forms.TabPage tabPageAbout;
         private System.Windows.Forms.RichTextBox richTextBoxAbout;
         private System.Windows.Forms.Label labelViewers;
         private System.Windows.Forms.Label labelIntroViewers;
         private System.Windows.Forms.ListBox listBoxChatters;
+        private System.Windows.Forms.CheckedListBox checkedListBoxPlugins;
 
 
 

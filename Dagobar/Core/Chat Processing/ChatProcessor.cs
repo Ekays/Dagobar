@@ -13,11 +13,13 @@ using System.Reflection;
 
 namespace Dagobar.Core.ChatProcessing
 {
-    class ChatProcessor
+    public class ChatProcessor
     {
         List<IPlugin> plugins = new List<IPlugin>(); // List of loaded plugins
+        List<IPlugin> desactivedPlugins = new List<IPlugin>(); // List of unloaded plugins
         Bot bot; // Store the bot instance in a variable
         TwitchAPI api; // Sore the Twitch api instance in a variable
+
         public ChatProcessor(Bot b, TwitchAPI ta)
         {
             bot = b;
@@ -74,9 +76,37 @@ namespace Dagobar.Core.ChatProcessing
             return list; // Return the list
         }
 
+        // ActivatePlugin : Active a plugin which is desactivated
+        public void ActivePlugin(string name)
+        {
+            foreach (IPlugin plugin in desactivedPlugins)
+            {
+                if (plugin.Name == name)
+                {
+                    plugins.Add(plugin);
+                    desactivedPlugins.Remove(plugin);
+                    break;
+                }
+            }
+        }
+
+        // DesactivePlugin : Desactive a plugin
+        public void DesactivePlugin(string name)
+        {
+            foreach (IPlugin plugin in plugins)
+            {
+                if (plugin.Name == name)
+                {
+                    plugins.Remove(plugin);
+                    desactivedPlugins.Add(plugin);
+                    break;
+                }
+            }
+        }
+
         void bot_OnMessageReceived(object sender, EventArgs e)
         {
-            Core.ReceiveMessageEventArgs receivedMessage = (Core.ReceiveMessageEventArgs)e; // Cast the EventArgs as its real type
+            Core.ReceiveMessageEventArgs receivedMessage = (Core.ReceiveMessageEventArgs)e; // Cast the EventArgs as his real type
 
             string[] textSplit = receivedMessage.Text.Split(' '); // Split the message's text with space
             string command = textSplit[0]; // Command is the first part of the message

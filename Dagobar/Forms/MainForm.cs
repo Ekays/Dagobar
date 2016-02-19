@@ -26,9 +26,15 @@ namespace Dagobar.Forms
             // Bind events
             Core.Bot.I.OnDataReceived += I_OnDataReceived;
             Core.Bot.I.OnMessageReceived += I_OnMessageReceived;
+            Core.Bot.I.OnChannelChanged += I_OnChannelChanged;
             Core.Bot.I.OnJoin += I_OnJoin;
             Core.Bot.I.OnPart += I_OnPart;
             Core.TwitchAPI.I.OnFetched += I_OnFetched;
+        }
+
+        void I_OnChannelChanged(object sender, EventArgs e)
+        {
+            listBoxChatters.Items.Clear();
         }
 
         void I_OnPart(object sender, EventArgs e)
@@ -133,17 +139,11 @@ namespace Dagobar.Forms
         {
             labelChannel.Text = Core.Bot.I.CurrentChannel; // Set the channel label to current channel
 
-            string pluginsText = ""; // Set the plugin label to loaded plugins
-            bool first = true;
-            foreach(string s in Core.Bot.I.LoadedPlugins) {
-                if (first)
-                {
-                    first = !first;
-                    pluginsText += s; 
-                }
-                else pluginsText += "  -  " + s; 
+            checkedListBoxPlugins.Items.Clear();
+            foreach (string plugin in Core.Bot.I.LoadedPlugins)
+            {
+                checkedListBoxPlugins.Items.Add(plugin, true);
             }
-            labelPlugins.Text = pluginsText;
         }
 
         public delegate void ChangeLabelTextDelegate(Label label, string text);
@@ -180,6 +180,15 @@ namespace Dagobar.Forms
             {
                 Process.Start(e.LinkText); // If yes, open it
             }
+        }
+
+        private void checkedListBoxPlugins_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            string text = checkedListBoxPlugins.Items[e.Index].ToString();
+            if (e.NewValue == CheckState.Checked)
+                Core.Bot.I.ChatProcessor.ActivePlugin(text);
+            else
+                Core.Bot.I.ChatProcessor.DesactivePlugin(text);
         }
     }
 }
