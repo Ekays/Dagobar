@@ -20,7 +20,7 @@ namespace WelcomePlugin
             try
             {
                 string configPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\config.json";
-                string content = File.ReadAllText(configPath);
+                string content = File.ReadAllText(configPath, System.Text.Encoding.UTF8);
                 JObject json = JObject.Parse(content);
                 foreach (string word in json["welcome"])
                 {

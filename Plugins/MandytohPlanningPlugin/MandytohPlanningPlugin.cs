@@ -1,6 +1,9 @@
 ﻿using Dagobar.Core.ChatProcessing;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 
 namespace MandytohPlanningPlugin
 {
@@ -12,16 +15,34 @@ namespace MandytohPlanningPlugin
 
         public void Initialize(IPluginContext context)
         {
-            planning.Add("Monday", ", c'est Game Analyse ! On analyse un jeu à la manière d'un game designer.");
-            planning.Add("Wednesday", ", c'est Long Series ! On découvre un même jeu pendant plusieurs épisodes.");
-            planning.Add("Friday", ", c'est Plagia Game Dev ! On essaye de reproduire le concept d'un jeu en 3 heures.");
-            planning.Add("Sunday", ", c'est Libre Antenne ! On parle avec vous");
-            planning.Add("None", ", rien de prévu, on fait comme on veut !");
-            planning.Add("Error", "Je ne reconnais pas ce jour !");
+            try
+            {
+                string configPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\config.json";
+                string content = File.ReadAllText(configPath, System.Text.Encoding.UTF8);
+
+                JsonTextReader reader = new JsonTextReader(new StringReader(content));
+
+                string lastName = String.Empty;
+                while (reader.Read())
+                {
+                    if (reader.TokenType == JsonToken.PropertyName)
+                    {
+                        lastName = (string) reader.Value;
+                    }
+                    else if (reader.TokenType == JsonToken.String)
+                    {
+                        planning.Add(lastName, (string)reader.Value);
+                        lastName = "";
+                    }
+                }
+            }
+            catch (Exception) { }
         }
 
         public void PerformCommand(IPluginContext context)
         {
+            if (planning.Count == 0) return;
+
             if (context.Command.ToLower() == "!planning")
             {
                 string key = "None";
