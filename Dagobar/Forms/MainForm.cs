@@ -177,9 +177,7 @@ namespace Dagobar.Forms
         {
             // When the user clicks a link, ask if he wants to open it
             if (MessageBox.Show("Voulez-vous ouvrir ce lien ?", e.LinkText, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-            {
                 Process.Start(e.LinkText); // If yes, open it
-            }
         }
 
         private void checkedListBoxPlugins_ItemCheck(object sender, ItemCheckEventArgs e)
