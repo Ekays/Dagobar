@@ -124,6 +124,7 @@ namespace Dagobar.Core.ChatProcessing
                 {
                     Arguments = arguments,
                     Username = receivedMessage.Username,
+                    UserInformations = receivedMessage.Informations,
                     Command = command,
                     Text = receivedMessage.Text,
                     Bot = bot,

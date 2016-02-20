@@ -37,6 +37,7 @@
             this.tabPageRaw = new System.Windows.Forms.TabPage();
             this.richTextBoxRaw = new System.Windows.Forms.RichTextBox();
             this.tabPageInformations = new System.Windows.Forms.TabPage();
+            this.checkedListBoxPlugins = new System.Windows.Forms.CheckedListBox();
             this.labelViewers = new System.Windows.Forms.Label();
             this.labelIntroViewers = new System.Windows.Forms.Label();
             this.labelIntroPlugins = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.buttonChangeChannel = new System.Windows.Forms.Button();
             this.tabPageAbout = new System.Windows.Forms.TabPage();
             this.richTextBoxAbout = new System.Windows.Forms.RichTextBox();
-            this.checkedListBoxPlugins = new System.Windows.Forms.CheckedListBox();
             this.tabControl.SuspendLayout();
             this.tabPageChat.SuspendLayout();
             this.tabPageRaw.SuspendLayout();
@@ -172,6 +172,20 @@
             this.tabPageInformations.Size = new System.Drawing.Size(626, 365);
             this.tabPageInformations.TabIndex = 3;
             this.tabPageInformations.Text = "Informations";
+            // 
+            // checkedListBoxPlugins
+            // 
+            this.checkedListBoxPlugins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkedListBoxPlugins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.checkedListBoxPlugins.CheckOnClick = true;
+            this.checkedListBoxPlugins.FormattingEnabled = true;
+            this.checkedListBoxPlugins.Location = new System.Drawing.Point(125, 53);
+            this.checkedListBoxPlugins.Name = "checkedListBoxPlugins";
+            this.checkedListBoxPlugins.Size = new System.Drawing.Size(493, 302);
+            this.checkedListBoxPlugins.TabIndex = 6;
+            this.checkedListBoxPlugins.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPlugins_ItemCheck);
             // 
             // labelViewers
             // 
@@ -306,19 +320,6 @@
             this.richTextBoxAbout.Size = new System.Drawing.Size(626, 365);
             this.richTextBoxAbout.TabIndex = 0;
             this.richTextBoxAbout.Text = resources.GetString("richTextBoxAbout.Text");
-            // 
-            // checkedListBoxPlugins
-            // 
-            this.checkedListBoxPlugins.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkedListBoxPlugins.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.checkedListBoxPlugins.FormattingEnabled = true;
-            this.checkedListBoxPlugins.Location = new System.Drawing.Point(125, 53);
-            this.checkedListBoxPlugins.Name = "checkedListBoxPlugins";
-            this.checkedListBoxPlugins.Size = new System.Drawing.Size(493, 302);
-            this.checkedListBoxPlugins.TabIndex = 6;
-            this.checkedListBoxPlugins.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBoxPlugins_ItemCheck);
             // 
             // MainForm
             // 

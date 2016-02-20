@@ -45,6 +45,9 @@ namespace Dagobar.Core
             }
         }
 
+        // Is the bot running
+        public bool IsRunning = false;
+
         // EventHandlers 
         public event EventHandler OnDataReceived; // This one is for raw data
         public event EventHandler OnMessageReceived; // And this one is for preprocessed messages
@@ -65,6 +68,7 @@ namespace Dagobar.Core
         // Run: Simply connect and login to the Twitch server
         public void Run()
         {
+            IsRunning = true;
             irc.Connect(ConnectionInformations.Twitch); // Connect to Twitch
 
             /*
@@ -87,6 +91,7 @@ namespace Dagobar.Core
         // Close: Disconnect from the Twitch server
         public void Close()
         {
+            IsRunning = false;
             irc.Close(); // Close the connection with Twitch
         }
 

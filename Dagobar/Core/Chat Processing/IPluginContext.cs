@@ -18,6 +18,7 @@ namespace Dagobar.Core.ChatProcessing
         public Bot Bot { get; set; }
         public TwitchAPI TwitchAPI { get; set; }
         public string Username { get; set; }
+        public string[] UserInformations { get; set; }
         public string Command { get; set; }
         public string[] Arguments { get; set; }
         public string Text { get; set; }

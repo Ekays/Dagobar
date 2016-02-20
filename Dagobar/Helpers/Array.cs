@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace Dagobar.Helpers
 {
-    class Array
+    public class Array
     {
         // A function that check if a variable is inside an array
         public static bool Contains(Object[] array, Object value)
