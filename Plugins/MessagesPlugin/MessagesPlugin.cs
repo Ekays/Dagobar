@@ -22,6 +22,14 @@ namespace MessagesPlugin
             {
                 string content = File.ReadAllText(configPath, System.Text.Encoding.UTF8);
                 commands = JsonConvert.DeserializeObject<List<Command>>(content);
+
+                foreach (Command c in commands)
+                {
+                    new Thread(TimedCommandThread).Start(new object[] {
+                        context,
+                        c.Name
+                    });
+                }
             }
             catch (Exception) { }
 
@@ -69,6 +77,11 @@ namespace MessagesPlugin
                 };
 
                 commands.Add(c);
+
+                new Thread(TimedCommandThread).Start(new object[] {
+                        context,
+                        c.Name
+                });
 
                 context.Bot.SendChannelMessage("La commande !" + c.Name + " a été ajoutée !");
                 Save();
@@ -133,26 +146,19 @@ namespace MessagesPlugin
                     return;
                 }
 
-                Command toChange = new Command();
-                bool found = false;
+                int found = -1;
 
                 for (int i = 0; i < commands.Count; i++)
                 {
-                    Command c = commands[i];
-                    if (c.Name == context.Arguments[0])
+                    if (commands[i].Name == context.Arguments[0])
                     {
-                        found = true;
-
-                        commands.Remove(c);
-                        c.Interval = newInterval;
-                        commands.Add(c);
-
-                        toChange = c;
+                        found = i;
+                        commands[i].Interval = newInterval;
                         break;
                     }
                 }
 
-                if (!found)
+                if (found == -1)
                 {
                     context.Bot.SendChannelMessage("Impossible de trouver la commande !" + context.Arguments[0] + " !");
                     return;
@@ -160,17 +166,17 @@ namespace MessagesPlugin
 
                 Save();
 
-                if (toChange.Interval == 1)
+                if (commands[found].Interval == 1)
                 {
-                    context.Bot.SendChannelMessage("L'intervalle d'affichage de la commande !" + toChange.Name + " est désormais de " + toChange.Interval + " minute!");
+                    context.Bot.SendChannelMessage("L'intervalle d'affichage de la commande !" + commands[found].Name + " est désormais de " + commands[found].Interval + " minute!");
                 }
-                else if (toChange.Interval == 0)
+                else if (commands[found].Interval == 0)
                 {
-                    context.Bot.SendChannelMessage("La commande !" + toChange.Name + " ne s'affichera plus automatiquement !");
+                    context.Bot.SendChannelMessage("La commande !" + commands[found].Name + " ne s'affichera plus automatiquement !");
                 }
                 else
                 {
-                    context.Bot.SendChannelMessage("L'intervalle d'affichage de la commande !" + toChange.Name + " est désormais de " + toChange.Interval + " minutes!");
+                    context.Bot.SendChannelMessage("L'intervalle d'affichage de la commande !" + commands[found].Name + " est désormais de " + commands[found].Interval + " minutes!");
                 }
             }
             else
@@ -186,9 +192,33 @@ namespace MessagesPlugin
             }
         }
 
-        public void IntervallCommand(object o)
+        public void TimedCommandThread(object o)
         {
-            
+            object[] arguments = (object[])o;
+            IPluginContext context = (IPluginContext)arguments[0];
+            string name = (string) arguments[1];
+
+            while (context.Bot.IsRunning)
+            {
+                Command command = new Command { Name = "FCKOFF2000" };
+                foreach (Command c in commands)
+                {
+                    if (c.Name == name)
+                    {
+                        command = c;
+                        break;
+                    }
+                }
+
+                if (command.Name == "FCKOFF2000")
+                {
+                    break;
+                }
+
+                Thread.Sleep(command.Interval); // Change to minuts after debug
+                context.Bot.SendChannelMessage(command.Text);
+
+            }
         }
     }
 }

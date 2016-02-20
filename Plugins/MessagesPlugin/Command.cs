@@ -2,7 +2,7 @@
 
 namespace MessagesPlugin
 {
-    public struct Command
+    public class Command
     {
         public string Name      { get; set; }
         public string Text      { get; set; }

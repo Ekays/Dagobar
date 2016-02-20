@@ -234,6 +234,3 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
-
-# My personnal TODO list
-TODO.txt
