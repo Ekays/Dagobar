@@ -211,13 +211,16 @@ namespace MessagesPlugin
                 }
 
                 if (command.Name == "FCKOFF2000")
-                {
                     break;
+
+                if (command.Interval == 0)
+                {
+                    Thread.Sleep(1000);
                 }
-
-                Thread.Sleep(command.Interval); // Change to minuts after debug
-                context.Bot.SendChannelMessage(command.Text);
-
+                else {
+                    Thread.Sleep(command.Interval * 60000);
+                    context.Bot.SendChannelMessage(command.Text);
+                }
             }
         }
     }

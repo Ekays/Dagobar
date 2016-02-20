@@ -93,9 +93,12 @@ namespace Dagobar.Core
                 catch (WebException) { continue;  } // If it fails, retry
             }
 
-            JObject jsonChatters = JObject.Parse(content); // Parse the json
-            jsons.Add("chatters", jsonChatters); // And store it in the Dictionary
-
+            try
+            {
+                JObject jsonChatters = JObject.Parse(content); // Parse the json
+                jsons.Add("chatters", jsonChatters); // And store it in the Dictionary
+            }
+            catch (Exception) { }
 
             // Throw an Fetched event
             EventHandler localEvent = OnFetched;

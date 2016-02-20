@@ -30,9 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\Alexandre\Desktop\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\Resources\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,7 +55,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF NOT EXIST $(ProjectDir)..\..\Dagobar\$(OutDir)\Plugins\$(ProjectName) mkdir  $(ProjectDir)..\..\Dagobar\$(OutDir)\Plugins\$(ProjectName)
-IF EXIST $(ProjectDir)..\..\Dagobar\$(OutDir)Plugins\$(ProjectName)\$(TargetFileName) rm  $(ProjectDir)..\..\Dagobar\$(OutDir)Plugins\$(ProjectName)\$(TargetFileName)
+IF EXIST $(ProjectDir)..\..\Dagobar\$(OutDir)Plugins\$(ProjectName)\$(TargetFileName) del $(ProjectDir)..\..\Dagobar\$(OutDir)Plugins\$(ProjectName)\$(TargetFileName)
 copy $(TargetPath) $(ProjectDir)..\..\$(SolutionName)\$(OutDir)Plugins\$(ProjectName)\</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
