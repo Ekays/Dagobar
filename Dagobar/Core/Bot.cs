@@ -113,17 +113,19 @@ namespace Dagobar.Core
             string data = ((Core.ReceiveDataEventArgs)e).Data; // Get the raw message from arguments
             string[] dataSplit = data.Split(' '); // Split the raw message with a space
 
-            if (dataSplit.Length == 3)
+            if (dataSplit.Length == 3) // If it looks like a JOIN or PART message
             {
-                if (dataSplit[1] == "JOIN"){
+                if (dataSplit[1] == "JOIN"){ // If it is a JOIN message
+                    // Prepare and throw a Join Event
                     string username = dataSplit[0].Split('!')[0].Remove(0, 1);
                     string channel = dataSplit[2].Remove(0, 1);
 
                     localEvent = OnJoin;
                     if (localEvent != null) localEvent(this, new JoinPartEventArgs(username, channel));
                 }
-                else if (dataSplit[1] == "PART")
+                else if (dataSplit[1] == "PART") // If it is a PART message
                 {
+                    // Prepare and throw a Part Event
                     string username = dataSplit[0].Split('!')[0].Remove(0, 1);
                     string channel = dataSplit[2].Remove(0, 1);
 

@@ -8,6 +8,7 @@
 
 namespace MessagesPlugin
 {
+    // Just a storing class
     public class Command
     {
         public string Name      { get; set; }
