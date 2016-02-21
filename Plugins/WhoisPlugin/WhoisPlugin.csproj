@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CCFC62CF-0C72-4C31-944A-F661DA0EBA3B}</ProjectGuid>
+    <ProjectGuid>{3BE29B29-DB53-4227-AE63-792D6BF52750}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WhoisPlugin</RootNamespace>
@@ -43,7 +43,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dagobar\Dagobar.csproj">
+    <ProjectReference Include="..\..\Dagobar\Dagobar.csproj">
       <Project>{953e2a77-6186-40fc-994f-099b34d93d68}</Project>
       <Name>Dagobar</Name>
     </ProjectReference>

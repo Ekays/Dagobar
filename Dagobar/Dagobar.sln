@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MandytohPlanningPlugin", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesPlugin", "..\Plugins\MessagesPlugin\MessagesPlugin.csproj", "{7C5CBE70-F34C-47FE-A63B-A7C99F1F1E74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoisPlugin", "..\WhoisPlugin\WhoisPlugin.csproj", "{CCFC62CF-0C72-4C31-944A-F661DA0EBA3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhoisPlugin", "..\Plugins\WhoisPlugin\WhoisPlugin.csproj", "{3BE29B29-DB53-4227-AE63-792D6BF52750}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{7C5CBE70-F34C-47FE-A63B-A7C99F1F1E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7C5CBE70-F34C-47FE-A63B-A7C99F1F1E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7C5CBE70-F34C-47FE-A63B-A7C99F1F1E74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCFC62CF-0C72-4C31-944A-F661DA0EBA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCFC62CF-0C72-4C31-944A-F661DA0EBA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCFC62CF-0C72-4C31-944A-F661DA0EBA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCFC62CF-0C72-4C31-944A-F661DA0EBA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BE29B29-DB53-4227-AE63-792D6BF52750}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BE29B29-DB53-4227-AE63-792D6BF52750}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BE29B29-DB53-4227-AE63-792D6BF52750}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BE29B29-DB53-4227-AE63-792D6BF52750}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
