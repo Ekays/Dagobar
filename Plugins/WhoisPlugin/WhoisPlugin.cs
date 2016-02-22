@@ -1,7 +1,4 @@
-﻿using Dagobar.Core.ChatProcessing;
-using Newtonsoft.Json;
-using System;
-/*
+﻿/*
  *          Dagobar is a Twitch bot with an UI which tends to be simple
  *          Copyright (C) 2016 r00tKiller
  *          This project is under license GNU GENERAL PUBLIC LICENSE Version 3
@@ -9,6 +6,9 @@ using System;
  *          
  * */
 
+using Dagobar.Core.ChatProcessing;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -42,22 +42,29 @@ namespace WhoisPlugin
 
         public void PerformCommand(IPluginContext context)
         {
-            if (context.Command.ToLower() == "!whois")
+            if (context.Command.ToLower() == "!whois") // If command is whois
             {
                 if (context.Arguments.Length > 0)
                 {
-                    PrintWhois(context.Arguments[0]);
+                    PrintWhois(context, context.Arguments[0]);
                 }
                 else
                 {
-                    PrintWhois(context.Bot.CurrentChannel);
+                    PrintWhois(context, context.Bot.CurrentChannel);
                 }
             }
         }
 
-        public void PrintWhois(string username)
+        public void PrintWhois(IPluginContext context, string username)
         {
-
+            if (whoisUsers.ContainsKey(username.ToLower()))
+            {
+                context.Bot.SendChannelMessage(whoisUsers[username.ToLower()]);
+            }
+            else
+            {
+                context.Bot.SendChannelMessage("Nop ...");
+            }
         }
     } 
 }

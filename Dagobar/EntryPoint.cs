@@ -27,7 +27,6 @@ namespace Dagobar
             new Thread(CloseCheck).Start(); // Start the CloseCheck thread
 
             Application.Run(); // Run the application
-
         }
 
         // CloseCheck: Close the Program when needed
