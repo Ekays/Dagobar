@@ -20,7 +20,7 @@ namespace WhoisPlugin
         public string Name { get { return "WhoIs"; } set { } }
 
         private string configPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"\config.json"; // The path of the config file
-        public Dictionary<string, string> whoisUsers = new Dictionary<string, string>();
+        public Dictionary<string, string> whoisUsers = new Dictionary<string, string>(); // Configuration dictionnary
 
         public void Initialize(IPluginContext context)
         {
@@ -44,26 +44,27 @@ namespace WhoisPlugin
         {
             if (context.Command.ToLower() == "!whois") // If command is whois
             {
-                if (context.Arguments.Length > 0)
+                if (context.Arguments.Length > 0) // If there is an argument
                 {
-                    PrintWhois(context, context.Arguments[0]);
+                    PrintWhois(context, context.Arguments[0]); // Print whois for the passed argument
                 }
-                else
+                else // Else
                 {
-                    PrintWhois(context, context.Bot.CurrentChannel);
+                    PrintWhois(context, context.Bot.CurrentChannel); // Print whois for the owner of the current channel
                 }
             }
         }
 
+        // PrintWhois : Print a tiny message for a specific user
         public void PrintWhois(IPluginContext context, string username)
         {
-            if (whoisUsers.ContainsKey(username.ToLower()))
+            if (whoisUsers.ContainsKey(username.ToLower())) // If user found
             {
-                context.Bot.SendChannelMessage(whoisUsers[username.ToLower()]);
+                context.Bot.SendChannelMessage(whoisUsers[username.ToLower()]); // Print its message
             }
-            else
+            else // Else
             {
-                context.Bot.SendChannelMessage("Nop ...");
+                context.Bot.SendChannelMessage("Nop ..."); // Print a tiny message
             }
         }
     } 
