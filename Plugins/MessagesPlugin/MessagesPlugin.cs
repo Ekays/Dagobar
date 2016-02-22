@@ -230,6 +230,7 @@ namespace MessagesPlugin
                 else 
                 {
                     Thread.Sleep(command.Interval * 60000); // Else wait for the desired time
+                    if (!commands.Contains(command)) return; // If command has been removed stop thread
                     context.Bot.SendChannelMessage(command.Text); // Then print the message
                 }
             }
