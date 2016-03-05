@@ -6,6 +6,9 @@
  *          
  * */
 
+using Dagobar.Forms;
+using Nevron.Nov;
+using Nevron.Nov.Windows.Forms;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -22,7 +25,20 @@ namespace Dagobar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            new SplashScreen().Show(); // Show the first form
+
+            // Apply license for redistribution here
+            NLicenseManager.Instance.SetLicense(new NLicense("99040c6f01a38c43bcc8a01902004100027d84097206d449"));
+
+            // Install Nevron Open Vision for Windows Forms
+            NNovApplicationInstaller.Install();
+
+            Core.Bot.I.Run(); // Run the bot instance
+            Core.TwitchAPI.I.Run(); // Run the Twitch API fetcher
+
+            if (Properties.Settings.Default.HasBeenSetuped) // If the bot as already been configured
+                new MainForm().Show(); // Start the bots
+            else
+                new SetupForm().Show(); // else show the Setup form
 
             new Thread(CloseCheck).Start(); // Start the CloseCheck thread
 

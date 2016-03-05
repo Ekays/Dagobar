@@ -90,17 +90,8 @@
     <Compile Include="Core\Chat Processing\IPluginContext.cs" />
     <Compile Include="Core\EventArguments.cs" />
     <Compile Include="Core\TwitchAPI.cs" />
-    <Compile Include="Forms\ConnectingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ConnectingForm.Designer.cs">
-      <DependentUpon>ConnectingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SetupForm.cs">
       <SubType>Form</SubType>
@@ -108,27 +99,12 @@
     <Compile Include="Forms\SetupForm.Designer.cs">
       <DependentUpon>SetupForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SplashScreenForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\SplashScreenForm.Designer.cs">
-      <DependentUpon>SplashScreenForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Core\IRC.cs" />
     <Compile Include="Helpers\Array.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\ConnectingForm.resx">
-      <DependentUpon>ConnectingForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SetupForm.resx">
       <DependentUpon>SetupForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SplashScreenForm.resx">
-      <DependentUpon>SplashScreenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

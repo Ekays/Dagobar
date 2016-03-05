@@ -35,8 +35,7 @@ namespace Dagobar.Forms
                
                 Properties.Settings.Default.Save(); // Save the Settings
 
-                ConnectingForm f = new ConnectingForm(); // Show the next form
-                f.Show();
+                new MainForm().Show(); // Show the next form
 
                 this.Close(); // Close this form
             }
