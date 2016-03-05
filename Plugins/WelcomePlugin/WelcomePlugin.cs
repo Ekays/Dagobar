@@ -61,6 +61,7 @@ namespace WelcomePlugin
             string lowerText = context.Text.ToLower(); // Get the user's message to lower case
 
             if (lowerText.StartsWith("!")) return; // If it's a command, return
+            lowerText = lowerText.Replace("!", "").Replace(".", "").Replace(",", "").Replace("?", "");
 
             foreach (string welcomeWord in welcomeWords) // Foreach word in the config
             {
