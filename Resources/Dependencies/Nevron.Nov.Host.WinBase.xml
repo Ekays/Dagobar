@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nevron.Nov.Host.WinBase</name>
+    </assembly>
+    <members>
+        <member name="T:Nevron.Nov.Windows.NHostWinBaseLoadAssemblyType">
+            <summary>
+            Dummy type used to explicitly load the Nevron.Nov.WinHost.Base assembly
+            </summary>
+        </member>
+    </members>
+</doc>
