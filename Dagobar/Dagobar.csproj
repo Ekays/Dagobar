@@ -90,6 +90,7 @@
     <Compile Include="Core\Chat Processing\IPluginContext.cs" />
     <Compile Include="Core\EventArguments.cs" />
     <Compile Include="Core\TwitchAPI.cs" />
+    <Compile Include="Crap\NPluginCheckBox.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +149,7 @@
   <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -35,8 +35,6 @@ namespace Dagobar.Forms
                
                 Properties.Settings.Default.Save(); // Save the Settings
 
-                new MainForm().Show(); // Show the next form
-
                 this.Close(); // Close this form
             }
             else

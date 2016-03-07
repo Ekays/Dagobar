@@ -33,13 +33,13 @@ namespace Dagobar
             NNovApplicationInstaller.Install();
 
             Core.Bot.I.Run(); // Run the bot instance
-            Core.TwitchAPI.I.Run(); // Run the Twitch API fetcher
 
             if (Properties.Settings.Default.HasBeenSetuped) // If the bot as already been configured
                 new MainForm().Show(); // Start the bots
             else
                 new SetupForm().Show(); // else show the Setup form
 
+            Core.TwitchAPI.I.Run(); // Run the Twitch API fetcher
             new Thread(CloseCheck).Start(); // Start the CloseCheck thread
 
             Application.Run(); // Run the application

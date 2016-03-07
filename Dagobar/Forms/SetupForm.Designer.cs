@@ -66,7 +66,7 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(433, 41);
             this.buttonSave.TabIndex = 4;
-            this.buttonSave.Text = "Sauvegarder et relâcher Dagobar";
+            this.buttonSave.Text = "Sauvegarder et quitter Dagobar";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
@@ -116,7 +116,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxLogo.BackColor = System.Drawing.Color.SlateGray;
             this.pictureBoxLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxLogo.Image = global::Dagobar.Properties.Resources.icon;
             this.pictureBoxLogo.InitialImage = null;
             this.pictureBoxLogo.Location = new System.Drawing.Point(12, 12);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
@@ -130,7 +129,7 @@
             this.AcceptButton = this.buttonSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 237);
+            this.ClientSize = new System.Drawing.Size(684, 236);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.textBoxOwner);
             this.Controls.Add(this.labelOwner);
