@@ -30,7 +30,7 @@ namespace Dagobar.Forms
                 if (!Properties.Settings.Default.HasBeenSetuped) // If it's the first configuration
                 {
                     Properties.Settings.Default.HasBeenSetuped = true; // Set as setuped
-                    Properties.Settings.Default.BotChannel = Properties.Settings.Default.BotOwner; // And define default channel
+                    Properties.Settings.Default.BotChannel = Properties.Settings.Default.BotOwner.ToLower(); // And define default channel
                 }
                
                 Properties.Settings.Default.Save(); // Save the Settings

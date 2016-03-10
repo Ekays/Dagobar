@@ -165,7 +165,7 @@ namespace Dagobar.Forms
 
         void ribbonButtonChannel_Click(Nevron.Nov.Dom.NEventArgs arg)
         {
-            string newChannel = Microsoft.VisualBasic.Interaction.InputBox("Nom du nouveau channel: ", "Dagobar", Properties.Settings.Default.BotOwner); //@TODO: Make a custom input box
+            string newChannel = Microsoft.VisualBasic.Interaction.InputBox("Nom du nouveau channel: ", "Dagobar", Properties.Settings.Default.BotOwner).ToLower(); //@TODO: Make a custom input box
             if (newChannel == String.Empty) return; // Ask for a new channel and check if it is not empty
             Core.Bot.I.ChangeChannel(newChannel); // Set the new channel
             Properties.Settings.Default.BotChannel = newChannel; // Change it in the settings
